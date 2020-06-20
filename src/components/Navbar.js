@@ -33,7 +33,6 @@ const SubHeading = styled.li`
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: left;
-
   margin: 4em 0 2em 0;
 `;
 
@@ -50,7 +49,7 @@ export default function Navbar() {
         <Li>Adventure</Li>
         <Li>Animation</Li>
         <Li>Comedy</Li>
-        <Li>crime</Li>
+        <Li>Crime</Li>
       </Ul>
     </Aside>
   );
