@@ -1,5 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
+  :root{
+    --primary-color-1 :#111;
+    --primary-color-2:#191919;
+    --light-gray:#555;
+
+  }
   *,
   *::before,
   *::after{
@@ -21,7 +27,6 @@ export const GlobalStyle = createGlobalStyle`
 
 export const MainWrapper = styled.div`
   display: flex;
-  background: blue;
 `;
 export const ContentWrapper = styled.div`
   width: 100%;
