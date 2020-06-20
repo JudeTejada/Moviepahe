@@ -9,7 +9,7 @@ export const useFetch = (url) => {
       setResponse(res.data);
     };
     fetchData();
-  }, []);
+  }, [url]);
 
   return response;
 };
