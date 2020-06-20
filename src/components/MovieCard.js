@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.figure`
-  /* display: flex;
-  align-items: center; */
-  background: #f9f9f9;
-  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
 `;
 
 const ImageCard = styled.img.attrs((props) => ({
@@ -14,7 +14,29 @@ const ImageCard = styled.img.attrs((props) => ({
 }))`
   object-fit: cover;
   width: 100%;
+  flex-basis: 50%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 `;
+const CardBody = styled.div`
+  background: #eee;
+  flex: 1;
+
+  align-self: stretch;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+`;
+const CardTitle = styled.h2`
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--primary-color-2);
+  text-align: center;
+`;
+
 export default function MovieCard({
   poster_path,
   original_title,
@@ -30,10 +52,12 @@ export default function MovieCard({
         imageTitle={original_title}
       />
 
-      <h2>{original_title}</h2>
-      <h5>{release_date}</h5>
-      <h5>{original_language}</h5>
-      <p>{overview}</p>
+      <CardBody>
+        <CardTitle>{original_title}</CardTitle>
+        <h5>{release_date}</h5>
+        <h5>{original_language}</h5>
+        <p>{overview.slice(0, 50)}...</p>
+      </CardBody>
     </Card>
   );
 }
