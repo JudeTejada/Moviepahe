@@ -34,6 +34,10 @@ export const MainWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
 export const ContentWrapper = styled.div`
+  min-height: 100vh;
   width: 100%;
+  padding: 5em;
+  padding-left: 23%;
 `;
