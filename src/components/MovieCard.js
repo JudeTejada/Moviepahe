@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.figure`
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
+  justify-content: space-between; */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
 `;
 
 const ImageCard = styled.img.attrs((props) => ({
@@ -14,29 +17,33 @@ const ImageCard = styled.img.attrs((props) => ({
 }))`
   object-fit: cover;
   width: 100%;
-  flex-basis: 50%;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 15px;
+  height: 100%;
 `;
 const CardBody = styled.div`
-  background: #eee;
-  flex: 1;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
 
-  align-self: stretch;
-  justify-self: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1em;
+  color: #fff;
+  padding-top: 1em;
+  padding-left: 1em;
 `;
 const CardTitle = styled.h2`
   font-weight: 900;
-  font-size: 1.8rem;
-  color: var(--primary-color-2);
-  text-align: center;
+  font-size: 2.5rem;
+`;
+const CardParagraph = styled.p`
+  font-size: 1.7rem;
+  font-weight: 300;
 `;
 
+const CardSubtitle = styled.h5`
+  font-weight: 700;
+  font-size: 1.2rem;
+`;
 export default function MovieCard({
   poster_path,
   original_title,
@@ -45,18 +52,23 @@ export default function MovieCard({
   release_date,
   original_language,
 }) {
+  const truncateText = (text) => {
+    if (text.length > 20) {
+      return `${text.slice(0, 30)}...`;
+    }
+    return text;
+  };
+  truncateText(original_title);
   return (
     <Card>
       <ImageCard
         imageSrc={`https://image.tmdb.org/t/p/w500/${poster_path}`}
         imageTitle={original_title}
       />
-
       <CardBody>
-        <CardTitle>{original_title}</CardTitle>
-        <h5>{release_date}</h5>
-        <h5>{original_language}</h5>
-        <p>{overview.slice(0, 50)}...</p>
+        <CardTitle>{truncateText(original_title)}</CardTitle>
+        <CardSubtitle>{release_date}</CardSubtitle>
+        <CardParagraph>{overview.slice(0, 50)}...</CardParagraph>
       </CardBody>
     </Card>
   );

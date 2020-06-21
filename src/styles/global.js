@@ -26,7 +26,13 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const MainWrapper = styled.div`
+  position: relative;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  user-select: none;
   display: flex;
+  flex-direction: row;
 `;
 export const ContentWrapper = styled.div`
   width: 100%;

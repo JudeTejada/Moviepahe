@@ -11,6 +11,12 @@ const Aside = styled.aside`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
 `;
 const Logo = styled.h1`
   font-size: 2rem;

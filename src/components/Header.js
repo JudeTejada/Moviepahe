@@ -7,8 +7,10 @@ import Searchbar from "./Searchbar";
 import MovieList from "./MovieList";
 const Wrapper = styled.div`
   min-height: 100vh;
-  background: #f7f7f7;
   width: 100%;
+  padding: 5em;
+  margin-left: 20%;
+  padding-right: 20%;
 `;
 export default function Header() {
   const Movies = useContext(MovieContext);

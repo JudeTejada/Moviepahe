@@ -13,7 +13,6 @@ function App() {
       <GlobalStyle />
       <MainWrapper>
         <Navbar />
-
         <ContentWrapper>
           <MoviesProvider>
             <Header />
