@@ -9,8 +9,7 @@ const Wrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   padding: 5em;
-  margin-left: 20%;
-  padding-right: 20%;
+  padding-left: 23%;
 `;
 export default function Header() {
   const Movies = useContext(MovieContext);
@@ -21,6 +20,8 @@ export default function Header() {
     <Wrapper>
       <Searchbar />
       <MovieList categoryTitle="Popular Movies" movies={popularMovies} />
+      <MovieList categoryTitle="Upcoming Movies" movies={upcomingMovies} />
+      <MovieList categoryTitle="TopRated Movies" movies={topRated} />
     </Wrapper>
   );
 }
