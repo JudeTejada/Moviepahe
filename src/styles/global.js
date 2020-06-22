@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing:border-box;
   }
   html{
+    scroll-behavior: smooth;
     font-size:62.5%; // 10px
   }
   body{

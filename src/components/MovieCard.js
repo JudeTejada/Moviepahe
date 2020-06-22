@@ -10,7 +10,7 @@ import {
   CardParagraph,
 } from "../styles/Card";
 
-import { truncateText } from "../util/util";
+import { truncateText, splitYear } from "../util/util";
 
 export default function MovieCard({
   poster_path,
@@ -18,7 +18,6 @@ export default function MovieCard({
   id,
   overview,
   release_date,
-  original_language,
 }) {
   return (
     <Card>
@@ -29,7 +28,7 @@ export default function MovieCard({
         />
         <CardBody>
           <CardTitle>{truncateText(original_title)}</CardTitle>
-          <CardSubtitle>{release_date}</CardSubtitle>
+          <CardSubtitle>{splitYear(release_date)}</CardSubtitle>
           <CardParagraph>{overview.slice(0, 50)}...</CardParagraph>
         </CardBody>
       </Link>

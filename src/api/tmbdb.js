@@ -25,3 +25,15 @@ export const fetchCast = async (id) => {
     alert(err);
   }
 };
+
+export const fetchSimilarMovies = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${API_KEY}`
+    );
+
+    return response.data;
+  } catch (err) {
+    alert(err);
+  }
+};

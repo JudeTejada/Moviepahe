@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { fetchCast } from "../api/tmbdb";
 import ProfileCard from "./profileCard";
 const MovieSubWrapper = styled.div`
-  margin-top: 4em;
+  margin: 4em 0;
   width: 100%;
 `;
 const MovieSubCasts = styled.section`
