@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
-export const MovieWrapper = styled.figure`
+export const MainWrapper = styled.figure`
   display: flex;
   align-items: center;
   width: 100%;
 `;
 
-export const MovieImage = styled.img.attrs((props) => ({
+export const MainImage = styled.img.attrs((props) => ({
   src: props.imageSrc,
   alt: props.imageTitle,
 }))`
@@ -13,23 +13,23 @@ export const MovieImage = styled.img.attrs((props) => ({
   width: 100%;
   flex-basis: 40%;
 `;
-export const MovieDetails = styled.div`
+export const MainDetails = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   padding-left: 3.8em;
   justify-self: flex-start;
 `;
-export const MovieTitle = styled.h2`
+export const MainTitle = styled.h2`
   font-size: 5rem;
   font-weight: 900;
 `;
-export const MovieSubTitle = styled.h3`
+export const MainSubtitle = styled.h3`
   font-size: 1.9rem;
   font-weight: 500;
   margin: 1em 0;
 `;
-export const MovieRating = styled.h4`
+export const MainRating = styled.h4`
   font-size: 1.6rem;
   color: #666;
 `;

@@ -37,3 +37,15 @@ export const fetchSimilarMovies = async (id) => {
     alert(err);
   }
 };
+
+export const fetchPersonData = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/person/${id}?api_key=${API_KEY}`
+    );
+
+    return response.data;
+  } catch (err) {
+    alert(err);
+  }
+};

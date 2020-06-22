@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Movie from "./components/Movie";
-
+import Person from "./components/Person";
 import { MoviesProvider } from "./context/Movies.context";
 
 import ScrollToTop from "./util/scrollTopTop";
@@ -35,6 +35,20 @@ function App() {
                   <>
                     <ScrollToTop>
                       <Movie {...routeProps} />
+                    </ScrollToTop>
+                  </>
+                );
+              }}
+            />
+
+            <Route
+              exact
+              path="/person/:id"
+              render={(routeProps) => {
+                return (
+                  <>
+                    <ScrollToTop>
+                      <Person {...routeProps} />
                     </ScrollToTop>
                   </>
                 );

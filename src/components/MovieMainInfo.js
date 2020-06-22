@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { fetchSingleMovie } from "../api/tmbdb";
 import {
-  MovieWrapper,
-  MovieImage,
-  MovieDetails,
-  MovieTitle,
-  MovieSubTitle,
-  MovieRating,
+  MainWrapper,
+  MainImage,
+  MainDetails,
+  MainTitle,
+  MainSubtitle,
+  MainRating,
   Text,
   Button,
   MovieDate,
@@ -46,23 +46,23 @@ export default function MovieMainInfo({ id }) {
     <li key={genre.id}>{genre.name}</li>
   ));
   return (
-    <MovieWrapper>
-      <MovieImage
+    <MainWrapper>
+      <MainImage
         imageSrc={`https://image.tmdb.org/t/p/w300/${poster_path}`}
         imageTitle={title}
       />
-      <MovieDetails>
-        <MovieTitle>
+      <MainDetails>
+        <MainTitle>
           {title} <MovieDate>({splitYear(release_date)})</MovieDate>
-        </MovieTitle>
-        <MovieRating>{vote_average} Rating</MovieRating>
-        <MovieSubTitle>The Synopsis</MovieSubTitle>
+        </MainTitle>
+        <MainRating>{vote_average} Rating</MainRating>
+        <MainSubtitle>The Synopsis</MainSubtitle>
         <Text>{overview}</Text>
         <div>
           <Button primary>Watch Trailer</Button>
           <Button>Website</Button>
         </div>
-      </MovieDetails>
-    </MovieWrapper>
+      </MainDetails>
+    </MainWrapper>
   );
 }
