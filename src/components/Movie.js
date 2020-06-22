@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
 
-import { fetchSingleData } from "../api/tmbdb";
+import { fetchSingleMovie, fetchCast } from "../api/tmbdb";
+import {
+  MovieWrapper,
+  MovieImage,
+  MovieDetails,
+  MovieTitle,
+  MovieSubTitle,
+  MovieRating,
+  Text,
+  Button,
+} from "../styles/Movie";
 
 export default function Movie(props) {
   const { id } = props.match.params;
   const [movie, setMovie] = useState("");
+  const [cast, setCast] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchMovie = async () => {
-      //fetch data
-      const data = await fetchSingleData(id);
-      setMovie(data);
+      const movieData = await fetchSingleMovie(id);
+      const castData = await fetchCast(id);
+
+      setMovie(movieData);
+      setCast(castData);
       setLoading(false);
     };
 
@@ -21,32 +34,38 @@ export default function Movie(props) {
     return <h1>Loading</h1>;
   }
   const {
-    released_date,
+    release_date,
     poster_path,
     title,
     genres,
     backdrop_path,
     vote_average,
+    overview,
+    homepage,
+    runtime,
+    budget,
   } = movie;
-  console.log(movie);
-  const genresSplit = genres.map((genre) => <li>{genre.name}</li>);
-  return (
-    <div>
-      <figure>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-          alt={title}
-        />
 
-        <div className="movieContent">
-          <ul>
-            <li>{released_date}</li>
-            {genresSplit};
-          </ul>
-          <li>{vote_average}</li>
-          <h1>{title}</h1>
+  const genresSplit = genres.map((genre) => (
+    <li key={genre.id}>{genre.name}</li>
+  ));
+
+  return (
+    <MovieWrapper>
+      <MovieImage
+        imageSrc={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+        imageTitle={title}
+      />
+      <MovieDetails>
+        <MovieTitle>{title}</MovieTitle>
+        <MovieRating>{vote_average} Rating</MovieRating>
+        <MovieSubTitle>The Synopsis</MovieSubTitle>
+        <Text>{overview}</Text>
+        <div>
+          <Button primary>Watch Trailer</Button>
+          <Button>Website</Button>
         </div>
-      </figure>
-    </div>
+      </MovieDetails>
+    </MovieWrapper>
   );
 }
