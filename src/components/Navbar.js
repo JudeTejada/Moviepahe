@@ -13,7 +13,6 @@ export default function Navbar() {
     fetchData();
   }, []);
 
-  console.log(genres);
   return (
     <Aside>
       <Logo>Movie Hub</Logo>
