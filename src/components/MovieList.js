@@ -8,7 +8,7 @@ export default function MovieList({ categoryTitle, movies }) {
     <div>
       <CategoryTitle>{categoryTitle}</CategoryTitle>
       <MovieGrid>
-        {movies.results.slice(0, 8).map((movie, i) => (
+        {movies.results.map((movie, i) => (
           <MovieCard {...movie} key={i} />
         ))}
       </MovieGrid>

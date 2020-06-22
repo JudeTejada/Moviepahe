@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Movie from "./components/Movie";
 import Person from "./components/Person";
+import Genre from "./components/Genre";
+
 import { MoviesProvider } from "./context/Movies.context";
 
 import ScrollToTop from "./util/scrollTopTop";
@@ -50,6 +52,18 @@ function App() {
                     <ScrollToTop>
                       <Person {...routeProps} />
                     </ScrollToTop>
+                  </>
+                );
+              }}
+            />
+
+            <Route
+              exact
+              path="/genres/:id/:genre"
+              render={(routeProps) => {
+                return (
+                  <>
+                    <Genre {...routeProps} />
                   </>
                 );
               }}

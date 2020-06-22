@@ -53,7 +53,20 @@ export const fetchPersonData = async (id) => {
 export const fetchPersonDataKnownFor = async (id) => {
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_cast=73457&}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_cast=${id}&}`
+    );
+
+    return response.data;
+  } catch (err) {
+    alert(err);
+  }
+};
+
+export const fetchGenres = async (id) => {
+  try {
+    const response = await axios.get(
+      `
+      https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
     );
 
     return response.data;

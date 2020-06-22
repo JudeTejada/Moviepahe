@@ -40,6 +40,21 @@ export const Text = styled.p`
   line-height: 1.7;
   padding: 1em 0;
 `;
+
+export const MainUl = styled.ul`
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 1em 0;
+`;
+export const MainLi = styled.li`
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #555;
+  &:not(:last-child) {
+    margin-right: 1em;
+  }
+`;
 export const Button = styled.button`
   background: none;
   align-self: flex-start;

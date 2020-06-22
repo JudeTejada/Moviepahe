@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MovieList from "./MovieList";
 import { fetchPersonData, fetchPersonDataKnownFor } from "../api/tmbdb";
+
 import {
   MainWrapper,
   MainImage,
@@ -10,6 +11,8 @@ import {
   Text,
   Button,
   MovieDate,
+  MainLi,
+  MainUl,
 } from "../styles/Movie";
 
 export default function Person(props) {
@@ -35,9 +38,16 @@ export default function Person(props) {
     return <h1>Loading</h1>;
   }
 
-  const { biography, birthday, name, place_of_birth, profile_path } = person;
+  const {
+    biography,
+    birthday,
+    name,
+    place_of_birth,
+    profile_path,
+    also_known_as,
+    known_for_department,
+  } = person;
 
-  console.log(personKnownFor);
   return (
     <>
       <MainWrapper>
@@ -47,6 +57,13 @@ export default function Person(props) {
         />
         <MainDetails>
           <MainTitle>{name}</MainTitle>
+
+          <MainUl>
+            <MainLi>{birthday}</MainLi>
+            <MainLi>{place_of_birth}</MainLi>
+            <MainLi>{also_known_as[0]}</MainLi>
+            <MainLi>{known_for_department}</MainLi>
+          </MainUl>
           <MainSubtitle>Biography</MainSubtitle>
           <Text>{biography}</Text>
         </MainDetails>

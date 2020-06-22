@@ -1,8 +1,5 @@
 import styled from "styled-components";
 export const Card = styled.figure`
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -15,7 +12,6 @@ export const ImageCard = styled.img.attrs((props) => ({
 }))`
   object-fit: cover;
   width: 100%;
-  border-radius: 15px;
   height: 100%;
 `;
 export const CardBody = styled.div`

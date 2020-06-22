@@ -1,23 +1,24 @@
 import styled from "styled-components";
 export const Aside = styled.aside`
-  height: 100%;
-  overflow: auto;
-  /* position: fixed; */
   padding: 3.2rem;
   width: 20%;
   font-size: 1.4rem;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+
+  height: 100vh; /* viewport height */
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  overflow-x: hidden;
+  bottom: 0;
+  overflow-y: scroll;
 `;
 export const Logo = styled.h1`
+  margin-top: 28em;
   font-size: 2rem;
   font-weight: 900;
 `;
