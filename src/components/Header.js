@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
 
 import { MovieContext } from "../context/Movies.context";
 import Searchbar from "./Searchbar";

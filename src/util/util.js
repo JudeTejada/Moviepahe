@@ -4,3 +4,9 @@ export const truncateText = (text) => {
   }
   return text;
 };
+
+// Function to get the year only from the date
+export const splitYear = (date) => {
+  const [year] = date.split("-");
+  return year;
+};

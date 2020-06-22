@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 export const MovieWrapper = styled.figure`
   display: flex;
   align-items: center;
-  padding: 6em;
   width: 100%;
 `;
 
@@ -22,7 +21,7 @@ export const MovieDetails = styled.div`
   justify-self: flex-start;
 `;
 export const MovieTitle = styled.h2`
-  font-size: 5.6rem;
+  font-size: 5rem;
   font-weight: 900;
 `;
 export const MovieSubTitle = styled.h3`
@@ -57,4 +56,9 @@ export const Button = styled.button`
       color: #fff;
       margin-right: 1.5em;
     `}
+`;
+
+export const MovieDate = styled.span`
+  font-weight: 300;
+  color: #555;
 `;
