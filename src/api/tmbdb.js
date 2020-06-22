@@ -49,3 +49,15 @@ export const fetchPersonData = async (id) => {
     alert(err);
   }
 };
+
+export const fetchPersonDataKnownFor = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_cast=73457&}`
+    );
+
+    return response.data;
+  } catch (err) {
+    alert(err);
+  }
+};
