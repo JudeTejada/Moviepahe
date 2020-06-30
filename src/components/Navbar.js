@@ -21,7 +21,7 @@ export default function Navbar() {
         <Li>Search</Li>
         <Li>Browse</Li>
         <SubHeading>Genres</SubHeading>
-        {genres && genres.map((genre) => <NavbarItem {...genre} />)}
+        {genres && genres.map((genre,i) => <NavbarItem {...genre}  key={i}/>)}
       </Ul>
     </Aside>
   );
