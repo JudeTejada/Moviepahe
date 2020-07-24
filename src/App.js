@@ -1,8 +1,15 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+
+import { GlobalStyle } from "./util/global.styles";
+import Header from "./components/header/Header";
 
 function App() {
-  return <h1>Movie Project</h1>;
+  return (
+    <div>
+      <GlobalStyle />
+      <Header />
+    </div>
+  );
 }
 
 export default App;
