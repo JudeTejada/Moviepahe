@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FormContainer, Searchbar } from "./Searchbar.styled";
+// import { FormContainer, Searchbar } from "./Searchbar.styled";
 
 export default function SearchBar() {
   return (

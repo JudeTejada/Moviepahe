@@ -4,12 +4,21 @@ import { fetchMoviesSuccess, fetchMoviesFailure } from "./movies.actions";
 
 import moviesActionTypes from "./movies.types";
 
+import { fetchRequest } from "../../api/tmbdb";
+
 export function* fetchMoviesAsync() {
-  console.log('I"M FIRED');
   try {
-    console.log("FETCHING MOVIES");
+    const mainMovies = yield call(fetchRequest, "/movie/popular", 1);
+
+    yield put({
+      type: moviesActionTypes.FETCH_MOVIES_SUCCESS,
+      payload: {
+        mainMovies,
+      },
+    });
+    // yield put (fetchMoviesSuccess(mainMovies))
   } catch (error) {
-    fetchMoviesFailure(error);
+    yield put(fetchMoviesFailure(error));
   }
 }
 

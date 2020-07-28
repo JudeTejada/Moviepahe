@@ -17,7 +17,8 @@ const moviesReducer = (state = initialState, action) => {
     case moviesActionTypes.FETCH_MOVIES_SUCCESS:
       return {
         ...state,
-        initMovies: { ...action.payload },
+        isFetching: false,
+        initMovies: action.payload,
       };
 
     case moviesActionTypes.FETCH_MOVIES_FAILURE:
