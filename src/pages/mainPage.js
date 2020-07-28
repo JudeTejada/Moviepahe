@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { fetchMoviesStart } from "../redux/movies/movies.actions";
 
+import MovieList from "../components/movieList/movieList";
+
 function MainPage({ initMovies, fetchMoviesStart, isFetching }) {
   useEffect(() => {
     console.log("MAIN PAGE");
@@ -13,12 +15,8 @@ function MainPage({ initMovies, fetchMoviesStart, isFetching }) {
     return <h1>LOADING!!!!!</h1>;
   }
   return (
-    <div>
-      {initMovies.results.map((movie) => (
-        <div key={movie.title}>
-          <h2>{movie.title}</h2>
-        </div>
-      ))}
+    <div className="MainPage">
+      <MovieList movies={initMovies} />
     </div>
   );
 }

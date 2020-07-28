@@ -26,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
         background:var(--primary-color);
         color:#fff;
 	    font-family: 'Work Sans', sans-serif;
-        padding:5rem;
+        padding:6rem;
 
 	}
 
