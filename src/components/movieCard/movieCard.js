@@ -1,11 +1,26 @@
 import React from "react";
 
+import {
+  CardContainer,
+  CardTitle,
+  CardDate,
+  CardImage,
+  CardDetails,
+} from "./movieCard.styled";
+
 export default function MovieCard({ title, release_date, id, backdrop_path }) {
   return (
-    <div>
-      <img src={`https://image.tmdb.org/t/p/w342/${backdrop_path}`} />
-      <h2>{title}</h2>
-      <h5>{release_date}</h5>
-    </div>
+    <CardContainer>
+      <CardImage
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/w342${backdrop_path})`,
+        }}
+      />
+
+      <CardDetails>
+        <CardTitle>{title}</CardTitle>
+        <CardDate>{release_date}</CardDate>
+      </CardDetails>
+    </CardContainer>
   );
 }

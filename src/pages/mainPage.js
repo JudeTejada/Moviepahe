@@ -11,13 +11,16 @@ function MainPage({ initMovies, fetchMoviesStart, isFetching }) {
     fetchMoviesStart();
   }, []);
 
-  if (!initMovies) {
-    return <h1>LOADING!!!!!</h1>;
-  }
   return (
-    <div className="MainPage">
-      <MovieList movies={initMovies} />
-    </div>
+    <>
+      {!initMovies ? (
+        <h1>Loading</h1>
+      ) : (
+        <div className="MainPage">
+          <MovieList movies={initMovies} />
+        </div>
+      )}
+    </>
   );
 }
 

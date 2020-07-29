@@ -8,6 +8,8 @@ export const GlobalStyle = createGlobalStyle`
         --tertiary-color-dark: #262626;
         --tertiary-color-light: #2F2F2F;
 
+        --card-date: #bdbdbd;
+
 
         --heading-1-size: 8.6rem;
         --heading-2-size: 5.4rem;
