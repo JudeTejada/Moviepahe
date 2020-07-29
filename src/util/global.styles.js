@@ -28,7 +28,9 @@ export const GlobalStyle = createGlobalStyle`
         background:var(--primary-color);
         color:#fff;
 	    font-family: 'Work Sans', sans-serif;
-        padding:6rem;
+        padding:2em;
+        max-width:130rem;
+        margin:0 auto;
 
 	}
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  width: 22vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -10,13 +10,15 @@ export const CardContainer = styled.div`
 `;
 
 export const CardImage = styled.div`
-  width: 100%;
-  height: 80%;
-  background-size: cover;
   background-position: center;
-
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 2rem;
 `;
 
 export const CardDetails = styled.div`
@@ -25,7 +27,7 @@ export const CardDetails = styled.div`
 
   background: var(--tertiary-color-light);
   position: absolute;
-  bottom: 5em;
+  bottom: 0;
 
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
