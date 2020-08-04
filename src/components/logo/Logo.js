@@ -1,7 +1,14 @@
 import React from "react";
+import { withRouter } from "react-router";
 
 import { LogoTitle } from "./Logo.styled";
 
-export default function Logo() {
-  return <LogoTitle>Movie Hub</LogoTitle>;
+function Logo({ history }) {
+  const backToHome = () => {
+    history.push("/");
+  };
+
+  return <LogoTitle onClick={backToHome}>Movie Hub</LogoTitle>;
 }
+
+export default withRouter(Logo);

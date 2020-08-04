@@ -3,21 +3,40 @@ import { connect } from "react-redux";
 
 import { queryMovieStart } from "../redux/search/search.action";
 
-function SearchPage({ match, queryMovieStart }) {
+import MovieList from "../components/movieList/movieList";
+
+function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
   useEffect(() => {
     console.log("SEARCHING");
 
     queryMovieStart(match.params.movie);
   }, [match.params.movie]);
+
+  // return isLoading &&
+  //   moviesFound.results.length < 1 &&
+  //   moviesFound.results === undefined ? (
+  //   <h1>Loading</h1>
+  // ) : (
+
+  // );
+
   return (
-    <div>
-      <h2>Search Result for {match.params.movie} </h2>
-    </div>
+    <>
+      {!moviesFound.results ? (
+        <h1>Loading</h1>
+      ) : (
+        <div>
+          <h2>Search Result for {match.params.movie} </h2>
+          <MovieList movies={moviesFound} />
+        </div>
+      )}
+    </>
   );
 }
 
 const mapStateToProps = (state) => ({
-  moviesFound: state,
+  moviesFound: state.search.moviesFound,
+  isLoading: state.search.isLoading,
 });
 const mapDispatchToProps = (dispatch) => ({
   queryMovieStart: (query) => dispatch(queryMovieStart(query)),

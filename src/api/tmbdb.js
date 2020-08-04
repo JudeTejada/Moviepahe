@@ -20,3 +20,16 @@ export const fetchRequest = async (param, page = 1) => {
 
   return request.data;
 };
+
+export const fetchMovie = async (query) => {
+  const request = await axios({
+    method: "GET",
+    url: `/search/movie`,
+    params: {
+      api_key: tmdbKey,
+      query,
+    },
+  });
+
+  return request.data;
+};

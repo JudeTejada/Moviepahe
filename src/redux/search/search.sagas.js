@@ -2,15 +2,15 @@ import { takeLatest, call, put, all } from "redux-saga/effects";
 
 import searchActionTypes from "./search.types";
 
-import {
-  queryMovieStart,
-  queryMovieFinish,
-  queryMovieFailure,
-} from "./search.action";
+import { fetchMovie } from "../../api/tmbdb";
+
+import { queryMovieFinish, queryMovieFailure } from "./search.action";
 
 export function* searchStart({ payload }) {
   try {
-    console.log("SEARCH SAGA", payload);
+    const data = yield call(fetchMovie, payload);
+
+    yield put(queryMovieFinish(data));
   } catch (err) {
     yield put(queryMovieFailure(err));
   }
