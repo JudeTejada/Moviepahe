@@ -5,7 +5,7 @@ export const fetchMoviesStart = () => ({
 });
 
 export const fetchMoviesSuccess = (movies) => ({
-  type: moviesActionTypes.FETCH_COLLECTIONS_SUCCESS,
+  type: moviesActionTypes.FETCH_MOVIES_SUCCESS,
   payload: movies,
 });
 

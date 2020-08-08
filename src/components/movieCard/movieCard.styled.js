@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export const CardContainer = styled.div`
   width: 100%;
   display: flex;
@@ -7,6 +7,7 @@ export const CardContainer = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
+  cursor: pointer;
 `;
 
 export const CardImage = styled.div`
@@ -42,4 +43,9 @@ export const CardTitle = styled.h4`
 export const CardDate = styled.h5`
   color: var(--card-date);
   font-size: var(--heading-5-size);
+`;
+
+export const LinkContainer = styled(Link)`
+  cursor: pointer;
+  color: #fff;
 `;

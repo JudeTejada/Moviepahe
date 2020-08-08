@@ -16,7 +16,6 @@ export function* fetchMoviesAsync() {
         mainMovies,
       },
     });
-    // yield put (fetchMoviesSuccess(mainMovies))
   } catch (error) {
     yield put(fetchMoviesFailure(error));
   }

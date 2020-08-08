@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
 
-// import { FormContainer, Searchbar } from "./Searchbar.styled";
+import { FormContainer, SearchInput } from "./Searchbar.styled";
 
 function SearchBar({ history }) {
   const [query, setQuery] = useState(null);
@@ -17,15 +17,14 @@ function SearchBar({ history }) {
   };
 
   return (
-    <form onSubmit={searchMovie}>
-      <input
+    <FormContainer onSubmit={searchMovie}>
+      <SearchInput
         type="text"
         name="search a Movie"
         placeholder="Search from 600,000 movies"
         onChange={inputChange}
       />
-      <button type="submit">Submit</button>
-    </form>
+    </FormContainer>
   );
 }
 

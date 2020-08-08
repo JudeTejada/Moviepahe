@@ -7,10 +7,10 @@ import MovieList from "../components/movieList/movieList";
 
 function MainPage({ initMovies, fetchMoviesStart, isFetching }) {
   useEffect(() => {
-    console.log("MAIN PAGE");
     fetchMoviesStart();
   }, []);
 
+  console.log(initMovies);
   return (
     <>
       {!initMovies ? (
