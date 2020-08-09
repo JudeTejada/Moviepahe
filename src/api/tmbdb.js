@@ -33,3 +33,15 @@ export const fetchMovie = async (query) => {
 
   return request.data;
 };
+
+export const fetchSingleRequest = async (category, id) => {
+  const request = await axios({
+    method: "GET",
+    url: `/${category}/${id}`,
+    params: {
+      api_key: tmdbKey,
+    },
+  });
+
+  return request.data;
+};

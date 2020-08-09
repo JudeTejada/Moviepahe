@@ -1,7 +1,7 @@
 import movieActionTypes from "./movie.types";
 
 const initialState = {
-  movies: [],
+  movie: null,
   isFetching: false,
   errorMessage: undefined,
 };
@@ -18,7 +18,7 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        movies: action.payload,
+        movie: action.payload,
       };
 
     case movieActionTypes.FETCH_MOVIE_FAILURE:

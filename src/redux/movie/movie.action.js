@@ -1,16 +1,16 @@
 import movieActionTypes from "./movie.types";
 
-export const fetchMoviesStart = (id) => ({
-  type: movieActionTypes.FETCH_MOVIES_START,
-  payload: id,
+export const fetchMovieStart = ({ category, id }) => ({
+  type: movieActionTypes.FETCH_MOVIE_START,
+  payload: { category, id },
 });
 
-export const fetchMoviesSuccess = (movies) => ({
-  type: movieActionTypes.FETCH_COLLECTIONS_SUCCESS,
-  payload: movies,
+export const fetchMovieSuccess = (movie) => ({
+  type: movieActionTypes.FETCH_MOVIE_SUCCESS,
+  payload: movie,
 });
 
-export const fetchMoviesFailure = (message) => ({
+export const fetchMovieFailure = (message) => ({
   type: movieActionTypes.FETCH_MOVIES_FAILURE,
   payload: message,
 });
