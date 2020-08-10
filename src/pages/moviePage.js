@@ -2,7 +2,19 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { fetchMovieStart } from "../redux/movie/movie.action";
-function MoviePage({ fetchMovieStart, match }) {
+
+import MovieOverview from "../components/movieOverview/MovieOverview";
+import MovieCasts from "../components/movieCasts/MovieCasts";
+
+function MoviePage({
+  fetchMovieStart,
+  match,
+  movie,
+  isFetching,
+  similars,
+  credits,
+  reviews,
+}) {
   useEffect(() => {
     fetchMovieStart({
       category: "movie",
@@ -10,15 +22,24 @@ function MoviePage({ fetchMovieStart, match }) {
     });
   }, [match.params.id]);
 
-  return (
-    <div>
-      <h1>SINGLE MOVIE PAGE</h1>
-      <h3>{match.params.id}</h3>
-    </div>
+  return !isFetching ? (
+    <>
+      {movie && <MovieOverview movie={movie} />}
+      {credits && <MovieCasts casts={credits} movie={movie} />}
+    </>
+  ) : (
+    <h1>Loading</h1>
   );
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  movie: state.movie.movie,
+  similars: state.movie.similars,
+  reviews: state.movie.reviews,
+  credits: state.movie.credits,
+  isFetching: state.movie.isFetching,
+  errorMessage: state.movie.errorMessage,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchMovieStart: (data) => dispatch(fetchMovieStart(data)),

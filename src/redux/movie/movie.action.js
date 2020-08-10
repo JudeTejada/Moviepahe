@@ -5,9 +5,9 @@ export const fetchMovieStart = ({ category, id }) => ({
   payload: { category, id },
 });
 
-export const fetchMovieSuccess = (movie) => ({
+export const fetchMovieSuccess = (payload) => ({
   type: movieActionTypes.FETCH_MOVIE_SUCCESS,
-  payload: movie,
+  payload: payload,
 });
 
 export const fetchMovieFailure = (message) => ({
