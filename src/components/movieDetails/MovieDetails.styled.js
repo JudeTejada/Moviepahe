@@ -20,5 +20,10 @@ export const MovieDetailSubtitle = styled.span`
 `;
 
 export const MovieSubTitleList = styled(MovieDetailSubtitle)`
-  padding-right: 1em;
+  padding: 1.2rem;
+  margin-right: 0.75rem;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  border: 1px solid #b5b5b5;
+  border-radius: 1.5rem;
 `;

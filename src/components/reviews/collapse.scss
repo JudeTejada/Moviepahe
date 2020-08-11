@@ -1,0 +1,39 @@
+.Collapsible {
+  background: var(--tertiary-color-dark);
+  margin-bottom: 1.2rem;
+}
+
+.Collapsible__trigger {
+  display: block;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  border: 1px solid var(--tertiary-color-dark);
+  background: var(--tertiary-color-light);
+  padding: 1.6rem;
+  color: #fff;
+}
+
+.Collapsible__trigger:after {
+  content: "▼";
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  font-size: 12px;
+  display: block;
+  color: #fff;
+  transition: transform 300ms;
+}
+
+.Collapsible__trigger.is-open:after {
+  transform: rotateZ(180deg);
+}
+
+.Collapsible__trigger.is-disabled {
+  opacity: 0.5;
+  background-color: grey;
+}
+
+.Collapsible__contentInner {
+  padding: 3.2rem;
+}

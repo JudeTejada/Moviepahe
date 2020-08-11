@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -49,4 +50,18 @@ export const GlobalStyle = createGlobalStyle`
         font-size: var(--body-text);
         line-height:170%;
     }
+`;
+
+export const ContainerWrapper = styled.div`
+  padding: 4em 6em;
+`;
+
+export const SectionContainer = styled.div`
+  margin: 6em 0;
+`;
+
+export const HeadingTwo = styled.h2`
+  font-size: var(--heading-3-size);
+  margin-bottom: 0.5em;
+  font-weight: medium;
 `;

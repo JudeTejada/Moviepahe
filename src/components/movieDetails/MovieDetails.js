@@ -8,8 +8,17 @@ import {
   MovieSubTitleList,
 } from "./MovieDetails.styled";
 
+import { numberWithCommas, toHrsMins } from "../../util/util";
+
 export default function MovieDetails({ movie }) {
-  const { genres, release_date, status, vote_average } = movie;
+  const {
+    genres,
+    release_date,
+    status,
+    vote_average,
+    runtime,
+    revenue,
+  } = movie;
 
   return (
     <MovieDetailsWrapper>
@@ -31,6 +40,16 @@ export default function MovieDetails({ movie }) {
       <MovieDetailList className="vote-average">
         <MovieDetailTitle>Rating</MovieDetailTitle>
         <MovieDetailSubtitle>{vote_average}</MovieDetailSubtitle>
+      </MovieDetailList>
+
+      <MovieDetailList className="vote-average">
+        <MovieDetailTitle>Runtime</MovieDetailTitle>
+        <MovieDetailSubtitle>{toHrsMins(runtime)}</MovieDetailSubtitle>
+      </MovieDetailList>
+
+      <MovieDetailList className="vote-average">
+        <MovieDetailTitle>Revenue</MovieDetailTitle>
+        <MovieDetailSubtitle>${numberWithCommas(revenue)}</MovieDetailSubtitle>
       </MovieDetailList>
     </MovieDetailsWrapper>
   );

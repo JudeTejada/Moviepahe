@@ -5,6 +5,10 @@ import { fetchMovieStart } from "../redux/movie/movie.action";
 
 import MovieOverview from "../components/movieOverview/MovieOverview";
 import MovieCasts from "../components/movieCasts/MovieCasts";
+import SimilarMovies from "../components/similarMovies/SimilarMovies";
+import Reviews from "../components/reviews/Reviews";
+
+import { ContainerWrapper } from "../util/global.styles";
 
 function MoviePage({
   fetchMovieStart,
@@ -23,10 +27,16 @@ function MoviePage({
   }, [match.params.id]);
 
   return !isFetching ? (
-    <>
+    <ContainerWrapper>
       {movie && <MovieOverview movie={movie} />}
       {credits && <MovieCasts casts={credits} movie={movie} />}
-    </>
+      {similars && (
+        <>
+          {similars.results.length !== 0 && <SimilarMovies movies={similars} />}
+        </>
+      )}
+      {reviews && <Reviews reviews={reviews} />}
+    </ContainerWrapper>
   ) : (
     <h1>Loading</h1>
   );
