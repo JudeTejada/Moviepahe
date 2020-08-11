@@ -9,7 +9,7 @@ export default function SimilarMovies({ movies }) {
   return (
     <SectionContainer>
       <HeadingTwo>Similar Movies</HeadingTwo>
-      <MovieList movies={movies} />
+      <MovieList movies={movies.results.slice(0, 6)} />
     </SectionContainer>
   );
 }

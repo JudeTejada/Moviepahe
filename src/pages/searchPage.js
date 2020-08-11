@@ -12,14 +12,6 @@ function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
     queryMovieStart(match.params.movie);
   }, [match.params.movie]);
 
-  // return isLoading &&
-  //   moviesFound.results.length < 1 &&
-  //   moviesFound.results === undefined ? (
-  //   <h1>Loading</h1>
-  // ) : (
-
-  // );
-
   return (
     <>
       {!moviesFound.results ? (
@@ -27,7 +19,7 @@ function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
       ) : (
         <div>
           <h2>Search Result for {match.params.movie} </h2>
-          <MovieList movies={moviesFound} />
+          <MovieList movies={moviesFound.results} />
         </div>
       )}
     </>

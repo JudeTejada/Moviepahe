@@ -17,7 +17,7 @@ function MainPage({ initMovies, fetchMoviesStart, isFetching }) {
         <h1>Loading</h1>
       ) : (
         <div className="MainPage">
-          <MovieList movies={initMovies} />
+          <MovieList movies={initMovies.results} />
         </div>
       )}
     </>

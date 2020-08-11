@@ -35,7 +35,7 @@ function MoviePage({
           {similars.results.length !== 0 && <SimilarMovies movies={similars} />}
         </>
       )}
-      {reviews && <Reviews reviews={reviews} />}
+      {reviews && !!reviews.totalpages && <Reviews reviews={reviews} />}
     </ContainerWrapper>
   ) : (
     <h1>Loading</h1>

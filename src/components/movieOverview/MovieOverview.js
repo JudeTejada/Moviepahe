@@ -8,21 +8,12 @@ import {
   MovieImageWrapper,
   MovieDetails,
   MovieOverviewWrapper,
-  MovieParagraph
+  MovieParagraph,
 } from "./MovieOverview.styled";
 
-export default function MovieOverview({ movie }) {
-  const {
-    backdrop_path,
-    genres,
-    budget,
-    overview,
-    original_title,
-    status,
-    vote_average,
-    release_date,
-  } = movie;
-
+export default function MovieOverview({
+  movie: { backdrop_path, overview, original_title },
+}) {
   const tmdbBackdropPath = "https://image.tmdb.org/t/p/original";
   //   console.log("MOVIE", movie.original_title);
   return (
@@ -41,6 +32,6 @@ export default function MovieOverview({ movie }) {
           <MovieParagraph>{overview}</MovieParagraph>
         </MovieDetails>
       </MovieDetailsContainer>
-    </MovieOverviewWrapper      >
+    </MovieOverviewWrapper>
   );
 }
