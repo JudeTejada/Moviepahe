@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const MovieDetailsWrapper = styled.div`
   padding: 2em;
+  padding-left: 7em;
 `;
 
 export const MovieDetailList = styled.div`
-  margin-top: 5.5em;
+  margin-bottom: 5.5em;
 `;
 
 export const MovieDetailTitle = styled.h4`

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchPersonStart } from "../redux/person/person.actions";
 
 import PersonBiography from "../components/personBiography/PersonBiography";
+import PersonCasting from "../components/personCasting/PersonCasting";
 
 function PersonPage({ match, fetchPersonStart, person, casting, isFetching }) {
   useEffect(() => {
@@ -13,6 +14,7 @@ function PersonPage({ match, fetchPersonStart, person, casting, isFetching }) {
   return !isFetching ? (
     <>
       <PersonBiography actor={person} />
+      <PersonCasting actor={person} casting={casting} />
     </>
   ) : (
     <h1>Loading</h1>

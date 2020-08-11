@@ -13,8 +13,7 @@ export default function MovieCasts({ casts, movie }) {
     <SectionContainer>
       <HeadingTwo>Movie Casts</HeadingTwo>
       <CastsWrapper>
-        <PeopleList people={cast.slice(0, 12)} />
-
+        <PeopleList people={cast.slice(0, 6)} />
         <MovieDetails movie={movie} />
       </CastsWrapper>
     </SectionContainer>
