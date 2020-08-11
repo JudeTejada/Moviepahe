@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	a {
 		text-decoration: none;
-		color: var(--primary-color);
+	 color:#fff;
 	}
 
 	* {

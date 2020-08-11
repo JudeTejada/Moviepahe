@@ -34,8 +34,8 @@ export const fetchMovie = async (query) => {
   return request.data;
 };
 
-export const fetchSimilarMovies = async(category,id) => {
-    const request = await axios({
+export const fetchSimilarMovies = async (category, id) => {
+  const request = await axios({
     method: "GET",
     url: `/${category}/${id}/similar`,
     params: {
@@ -44,10 +44,10 @@ export const fetchSimilarMovies = async(category,id) => {
   });
 
   return request.data;
-}
+};
 
-export const fetchMovieReviews = async(category,id) => {
-    const request = await axios({
+export const fetchMovieReviews = async (category, id) => {
+  const request = await axios({
     method: "GET",
     url: `/${category}/${id}/reviews`,
     params: {
@@ -56,10 +56,10 @@ export const fetchMovieReviews = async(category,id) => {
   });
 
   return request.data;
-}
+};
 
-export const fetchMovieCredits = async(category,id) => {
-      const request = await axios({
+export const fetchMovieCredits = async (category, id) => {
+  const request = await axios({
     method: "GET",
     url: `/${category}/${id}/credits`,
     params: {
@@ -68,9 +68,7 @@ export const fetchMovieCredits = async(category,id) => {
   });
 
   return request.data;
-}
-
-
+};
 
 export const fetchSingleRequest = async (category, id) => {
   const request = await axios({
@@ -84,4 +82,13 @@ export const fetchSingleRequest = async (category, id) => {
   return request.data;
 };
 
-
+export const fetchPersonCasting = async (id) => {
+  const castingRequest = await axios({
+    method: "GET",
+    url: `/person/${id}/combined_credits`,
+    params: {
+      api_key: tmdbKey,
+    },
+  });
+  return castingRequest.data.cast;
+};

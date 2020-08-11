@@ -1,0 +1,7 @@
+const personActionTypes = {
+  FETCH_PERSON_START: "FETCH_PERSON_START",
+  FETCH_PERSON_SUCCESS: "FETCH_PERSON_SUCCESS",
+  FETCH_PERSON_FAILURE: "FETCH_PERSON_FAILURE",
+};
+
+export default personActionTypes;
