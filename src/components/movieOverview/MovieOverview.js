@@ -11,6 +11,10 @@ import {
   MovieParagraph,
 } from "./MovieOverview.styled";
 
+import CustomButton from "../button/button";
+
+import { ReactComponent as LinkIcon } from "../../assets/LinkIcon.svg";
+
 export default function MovieOverview({
   movie: { backdrop_path, overview, original_title },
 }) {
@@ -30,6 +34,9 @@ export default function MovieOverview({
         <MovieDetails>
           <MovieSubtitle>Movie Details</MovieSubtitle>
           <MovieParagraph>{overview}</MovieParagraph>
+          <CustomButton movieButtonStyle>
+            <LinkIcon /> <span> Visit Site</span>
+          </CustomButton>
         </MovieDetails>
       </MovieDetailsContainer>
     </MovieOverviewWrapper>
