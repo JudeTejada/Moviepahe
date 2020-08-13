@@ -4,21 +4,26 @@ import {
   CardContainer,
   CardTitle,
   CardDate,
-  CardImage,
+  CardImageContainer,
   CardDetails,
   LinkContainer,
 } from "./movieCard.styled";
 
-export default function MovieCard({ title, release_date, id, backdrop_path }) {
+import imgPlaceholder from "../../assets/placeholder.jpg";
+
+export default function MovieCard({ title, release_date, id, poster_path }) {
+  const tmdbPosterPath = "https://image.tmdb.org/t/p/w185_and_h278_face/";
+
   return (
     <LinkContainer to={`/movie/${id}`}>
       <CardContainer>
-        <CardImage
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/w342${backdrop_path})`,
-          }}
-        />
-
+        <CardImageContainer>
+          <img
+            src={
+              poster_path ? `${tmdbPosterPath + poster_path}` : imgPlaceholder
+            }
+          />
+        </CardImageContainer>
         <CardDetails>
           <CardTitle>{title}</CardTitle>
           <CardDate>{release_date}</CardDate>

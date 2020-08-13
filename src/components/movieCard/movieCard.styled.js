@@ -4,32 +4,34 @@ export const CardContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 350px;
+
   align-items: center;
   position: relative;
   cursor: pointer;
 `;
 
-export const CardImage = styled.div`
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: absolute;
+export const CardImageContainer = styled.div`
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border-radius: 2rem;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  position: relative;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  & > * {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 `;
 
 export const CardDetails = styled.div`
   padding: 2.5em;
   width: 100%;
-
   background: var(--tertiary-color-light);
-  position: absolute;
-  bottom: 0;
-
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
 `;
