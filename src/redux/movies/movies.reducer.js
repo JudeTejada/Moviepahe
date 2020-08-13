@@ -4,6 +4,7 @@ const initialState = {
   initMovies: [],
   isFetching: false,
   errorMessage: undefined,
+  movieRelevance: "upcoming",
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -28,6 +29,13 @@ const moviesReducer = (state = initialState, action) => {
         errorMessage: action.payload,
       };
 
+    case moviesActionTypes.CHANGE_RELEVANCE:
+      return {
+        ...state,
+        isFetching: true,
+        initMovies: [],
+        movieRelevance: action.payload,
+      };
     default:
       return state;
   }

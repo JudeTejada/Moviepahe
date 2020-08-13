@@ -6,10 +6,10 @@ import moviesActionTypes from "./movies.types";
 
 import { fetchRequest } from "../../api/tmbdb";
 
-export function* fetchMoviesAsync() {
+export function* fetchMoviesAsync({ payload }) {
   try {
-    const mainMovies = yield call(fetchRequest, "/movie/popular", 1);
-
+    const mainMovies = yield call(fetchRequest, `/movie/${payload}`, 1);
+    console.log(payload);
     yield put({
       type: moviesActionTypes.FETCH_MOVIES_SUCCESS,
       payload: {

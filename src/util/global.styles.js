@@ -65,3 +65,10 @@ export const HeadingTwo = styled.h2`
   margin-bottom: 0.5em;
   font-weight: medium;
 `;
+
+export const HeadingOne = styled.h1`
+  font-size: var(--heading-1-size);
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+  font-weight: 700;
+`;

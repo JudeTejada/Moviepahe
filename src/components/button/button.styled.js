@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 const buttonStyles = css`
   border: none;
   color: white;
+  outline: none;
 `;
 
 const movieButtonStyle = css`
@@ -15,15 +16,19 @@ const movieButtonStyle = css`
   justify-content: center;
   height: 50px;
   padding: 0 25px;
+  transition: all 0.3s;
 
   & span {
     margin-left: 0.6em;
-    opacity: 0.8;
   }
   & svg {
     width: calc(var(--button-size) + 0.3em);
     height: calc(var(--button-size) + 0.3em);
-    opacity: 0.8;
+  }
+
+  &:hover {
+    background-color: #fff;
+    color: black;
   }
 `;
 
@@ -41,6 +46,6 @@ export const CustomButtonContainer = styled.button`
   font-family: inherit;
   font-weight: 500;
   font-size: var(--button-size);
-  border-radius: 1rem;
+  border-radius: 0.4em;
   ${getButtonStyle}
 `;

@@ -1,7 +1,8 @@
 import moviesActionTypes from "./movies.types";
 
-export const fetchMoviesStart = () => ({
+export const fetchMoviesStart = (payload) => ({
   type: moviesActionTypes.FETCH_MOVIES_START,
+  payload: payload,
 });
 
 export const fetchMoviesSuccess = (movies) => ({
@@ -12,4 +13,9 @@ export const fetchMoviesSuccess = (movies) => ({
 export const fetchMoviesFailure = (message) => ({
   type: moviesActionTypes.FETCH_MOVIES_FAILURE,
   payload: message,
+});
+
+export const changeRelevance = (relevance) => ({
+  type: moviesActionTypes.CHANGE_RELEVANCE,
+  payload: relevance,
 });

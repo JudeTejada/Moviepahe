@@ -1,36 +1,20 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
 
-import { fetchMoviesStart } from "../redux/movies/movies.actions";
+import MovieRelevance from "../components/moviesRelevance/MovieRelevance";
+import OptionCategory from "../components/optionCategory/optionCategory";
 
-import MovieList from "../components/movieList/movieList";
+import { HeadingOne } from "../util/global.styles";
 
-function MainPage({ initMovies, fetchMoviesStart, isFetching }) {
-  useEffect(() => {
-    fetchMoviesStart();
-  }, []);
-
-  console.log(initMovies);
+function MainPage({}) {
   return (
     <>
-      {!initMovies ? (
-        <h1>Loading</h1>
-      ) : (
-        <div className="MainPage">
-          <MovieList movies={initMovies.results} />
-        </div>
-      )}
+      <div className="MainPage">
+        <HeadingOne>A library of Movies</HeadingOne>
+        <OptionCategory />
+        <MovieRelevance />
+      </div>
     </>
   );
 }
 
-const mapStateToProps = (state) => ({
-  initMovies: state.movies.initMovies.mainMovies,
-  isFetching: state.movies.isFetching,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  fetchMoviesStart: () => dispatch(fetchMoviesStart()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default MainPage;
