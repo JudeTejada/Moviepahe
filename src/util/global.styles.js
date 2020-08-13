@@ -30,8 +30,7 @@ export const GlobalStyle = createGlobalStyle`
         color:#fff;
 	    font-family: 'Work Sans', sans-serif;
         padding:2em;
-        max-width:130rem;
-        margin:0 auto;
+    
 
 	}
 
@@ -53,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const ContainerWrapper = styled.div`
-  padding: 4em 6em;
+  padding: 2em;
 `;
 
 export const SectionContainer = styled.div`

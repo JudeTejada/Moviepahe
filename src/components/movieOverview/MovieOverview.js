@@ -14,6 +14,7 @@ import {
 import CustomButton from "../button/button";
 
 import { ReactComponent as LinkIcon } from "../../assets/LinkIcon.svg";
+import ImgPlaceholder from "../../assets/placeholder.jpg";
 
 export default function MovieOverview({
   movie: { backdrop_path, overview, original_title },
@@ -26,7 +27,9 @@ export default function MovieOverview({
       <MovieDetailsContainer>
         <MovieImageWrapper>
           <MovieImage
-            src={tmdbBackdropPath + backdrop_path}
+            src={
+              backdrop_path ? tmdbBackdropPath + backdrop_path : ImgPlaceholder
+            }
             alt={original_title}
           />
         </MovieImageWrapper>

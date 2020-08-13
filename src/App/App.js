@@ -4,6 +4,7 @@ import { GlobalStyle } from "../util/global.styles";
 
 import Header from "../components/header/Header";
 import Footer from "../components/footer/footer";
+import Navbar from "../components/navbar/Navbar";
 
 import MainPage from "../pages/mainPage";
 import SearchPage from "../pages/searchPage";
@@ -18,6 +19,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <AppContainer>
+        <Navbar />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/search/:movie" component={SearchPage} />
