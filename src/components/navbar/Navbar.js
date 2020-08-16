@@ -29,7 +29,7 @@ export default function Navbar() {
       <NavTitle>Genres</NavTitle>
       <NavUl>
         {genres.map((genre) => (
-          <Link to={`genre/${genre}`}>
+          <Link to={`genre/${genre}`} key={genre}>
             <NavList>{genre}</NavList>
           </Link>
         ))}

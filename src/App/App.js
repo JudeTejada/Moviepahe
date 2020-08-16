@@ -10,6 +10,7 @@ import MainPage from "../pages/mainPage";
 import SearchPage from "../pages/searchPage";
 import MoviePage from "../pages/moviePage";
 import PersonPage from "../pages/personPage";
+import GenrePage from "../pages/genrePage";
 
 import { AppContainer } from "./App.styled";
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/search/:movie" component={SearchPage} />
           <Route exact path="/movie/:id" component={MoviePage} />
           <Route exact path="/person/:personId" component={PersonPage} />
+          <Route exact path="/genre/:movieGenre" component={GenrePage} />
         </Switch>
       </AppContainer>
       <Footer />
