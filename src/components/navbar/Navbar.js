@@ -1,39 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { NavUl, NavList, NavTitle, NavContainer } from "./navbar.styled";
-
-export default function Navbar() {
-  const genres = [
-    "Action",
-    "Adventure",
-    "Animation",
-    "Comedy",
-    "Crime",
-    "Documentary",
-    "Drama",
-    "Family",
-    "Fantasy",
-    "History",
-    "Horror",
-    "Music",
-    "Mystery",
-    "Romance",
-    "Science Fiction",
-    "Thriller",
-    "War",
-    "Western",
-  ];
+import { fetchGenresStart } from "../../redux/genre/genre.actions";
+import { isEmpty } from "../../util/util";
+function Navbar({ fetchGenresStart, genres }) {
+  console.log(genres);
+  useEffect(() => {
+    fetchGenresStart();
+  }, []);
   return (
     <NavContainer>
       <NavTitle>Genres</NavTitle>
       <NavUl>
-        {genres.map((genre) => (
-          <Link to={`genre/${genre}`} key={genre}>
-            <NavList>{genre}</NavList>
-          </Link>
-        ))}
+        {genres &&
+          genres.map(({ name, id }) => (
+            <Link to={`genre/${name}`} key={id}>
+              <NavList>{name}</NavList>
+            </Link>
+          ))}
       </NavUl>
     </NavContainer>
   );
 }
+const mapStateToProps = (state) => ({
+  genres: state.genre.genres.genres,
+});
+const mapDispatchToProps = (dispatch) => ({
+  fetchGenresStart: () => dispatch(fetchGenresStart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

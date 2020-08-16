@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchGenreStart } from "../redux/genre/genre.actions";
+import { fetchMovieByGenreStart } from "../redux/genre/genre.actions";
 
-function GenrePage({ match, fetchGenreStart }) {
+function GenrePage({ match, fetchMovieByGenreStart }) {
   useEffect(() => {
-    fetchGenreStart(match.params.movieGenre);
+    fetchMovieByGenreStart(match.params.movieGenre);
   }, [match.params.movieGenre]);
   return (
     <div>
@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
   isLoading: state.search.isLoading,
 });
 const mapDispatchToProps = (dispatch) => ({
-  fetchGenreStart: (genre) => dispatch(fetchGenreStart(genre)),
+  fetchMovieByGenreStart: (genre) => dispatch(fetchMovieByGenreStart(genre)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GenrePage);

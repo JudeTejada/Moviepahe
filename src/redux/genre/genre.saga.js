@@ -1,6 +1,10 @@
 import { takeLatest, call, put, all } from "redux-saga/effects";
 
-import { fetchGenreFailure, fetchGenreSuccess } from "./genre.actions";
+import {
+  fetchGenresSuccess,
+  fetchMovieByGenreSuccess,
+  fetchMovieByGenreFailure,
+} from "./genre.actions";
 
 import genreActionTypes from "./genre.types";
 
@@ -10,14 +14,31 @@ export function* fetchMovieByGenreAsync({ payload }) {
   try {
     console.log(payload);
   } catch (error) {
-    yield put(fetchGenreFailure(error));
+    yield put(fetchMovieByGenreFailure(error));
   }
 }
 
-export function* fetchMovieByGenreStart() {
-  yield takeLatest(genreActionTypes.FETCH_GENRE_START, fetchMovieByGenreAsync);
+export function* fetchGenresAsync() {
+  try {
+    const genres = yield call(fetchRequest, `/genre/movie/list`);
+
+    yield put(fetchGenresSuccess(genres));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function* onfetchMovieByGenreStart() {
+  yield takeLatest(
+    genreActionTypes.FETCH_MOVIE_BY_GENRE_START,
+    fetchGenresAsync
+  );
+}
+
+export function* onfetchGenreStart() {
+  yield takeLatest(genreActionTypes.FETCH_GENRES_START, fetchGenresAsync);
 }
 
 export function* genreSaga() {
-  yield all([call(fetchMovieByGenreStart)]);
+  yield all([call(onfetchMovieByGenreStart), call(onfetchGenreStart)]);
 }

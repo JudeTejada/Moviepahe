@@ -9,7 +9,7 @@ import { fetchRequest } from "../../api/tmbdb";
 export function* fetchMoviesAsync({ payload }) {
   try {
     const mainMovies = yield call(fetchRequest, `/movie/${payload}`, 1);
-    console.log(payload);
+
     yield put({
       type: moviesActionTypes.FETCH_MOVIES_SUCCESS,
       payload: {
