@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchMovieByGenreStart } from "../redux/genre/genre.actions";
 
-function GenrePage({ match, fetchMovieByGenreStart }) {
+function GenrePage({ match, fetchMovieByGenreStart, ...props }) {
+  console.log(props);
+
   useEffect(() => {
+
     fetchMovieByGenreStart(match.params.movieGenre);
   }, [match.params.movieGenre]);
   return (

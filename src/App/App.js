@@ -19,8 +19,8 @@ function App() {
     <div>
       <GlobalStyle />
       <Header />
+      <Navbar />
       <AppContainer>
-        <Navbar />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/search/:movie" component={SearchPage} />

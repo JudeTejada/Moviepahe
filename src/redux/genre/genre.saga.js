@@ -12,7 +12,7 @@ import { fetchRequest } from "../../api/tmbdb";
 
 export function* fetchMovieByGenreAsync({ payload }) {
   try {
-    console.log(payload);
+    const genreMovies =  yield call (fetchRequest, )
   } catch (error) {
     yield put(fetchMovieByGenreFailure(error));
   }
@@ -31,7 +31,7 @@ export function* fetchGenresAsync() {
 export function* onfetchMovieByGenreStart() {
   yield takeLatest(
     genreActionTypes.FETCH_MOVIE_BY_GENRE_START,
-    fetchGenresAsync
+    fetchMovieByGenreAsync
   );
 }
 
