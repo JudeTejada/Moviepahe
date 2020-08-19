@@ -19,14 +19,19 @@ function App() {
     <div>
       <GlobalStyle />
       <Header />
-      <Navbar />
+
       <AppContainer>
+        <Navbar />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/search/:movie" component={SearchPage} />
           <Route exact path="/movie/:id" component={MoviePage} />
           <Route exact path="/person/:personId" component={PersonPage} />
-          <Route exact path="/genre/:movieGenre" component={GenrePage} />
+          <Route
+            exact
+            path="/genre/:movieGenre/:genreId"
+            component={GenrePage}
+          />
         </Switch>
       </AppContainer>
       <Footer />

@@ -6,8 +6,6 @@ import { NavUl, NavList, NavTitle, NavContainer } from "./navbar.styled";
 import { fetchGenresStart } from "../../redux/genre/genre.actions";
 import { isEmpty } from "../../util/util";
 function Navbar({ fetchGenresStart, genres }) {
-  console.log("RENDERING NAVBAR");
-  console.log(genres);
   useEffect(() => {
     fetchGenresStart();
   }, []);
@@ -17,7 +15,7 @@ function Navbar({ fetchGenresStart, genres }) {
       <NavUl>
         {genres &&
           genres.map(({ name, id }) => (
-            <Link to={`${process.env.PUBLIC_URL}/genre/${name}`}>
+            <Link to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`} key={id}>
               <NavList>{name}</NavList>
             </Link>
           ))}
