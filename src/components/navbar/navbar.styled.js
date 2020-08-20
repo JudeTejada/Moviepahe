@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.nav`
-  margin-top: 5em;
+  margin-top: 6.5em;
 `;
 
 export const NavTitle = styled.h3`

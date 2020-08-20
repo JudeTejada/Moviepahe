@@ -12,10 +12,10 @@ function PersonPage({ match, fetchPersonStart, person, casting, isFetching }) {
     fetchPersonStart({ category: "person", id: personId });
   }, [match.params.personId]);
   return !isFetching ? (
-    <>
+    <div>
       <PersonBiography actor={person} />
       <PersonCasting actor={person} casting={casting} />
-    </>
+    </div>
   ) : (
     <h1>Loading</h1>
   );

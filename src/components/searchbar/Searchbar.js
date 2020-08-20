@@ -9,6 +9,7 @@ function SearchBar({ history }) {
   const searchMovie = (e) => {
     e.preventDefault();
     if (!query) return;
+
     history.push(`/search/${query}`);
   };
 

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { queryMovieStart } from "../redux/search/search.action";
 
+import { HeadingOne } from "../util/global.styles";
+
 import MovieList from "../components/movieList/movieList";
 
 function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
@@ -18,7 +20,7 @@ function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
         <h1>Loading</h1>
       ) : (
         <div>
-          <h2>Search Result for {match.params.movie} </h2>
+          <HeadingOne>Search Result for {match.params.movie} </HeadingOne>
           <MovieList movies={moviesFound.results} />
         </div>
       )}

@@ -67,7 +67,7 @@ export const HeadingTwo = styled.h2`
 
 export const HeadingOne = styled.h1`
   font-size: var(--heading-1-size);
-  margin-top: 1em;
+  margin-top: 0.5em;
   margin-bottom: 0.3em;
   font-weight: 700;
 `;
