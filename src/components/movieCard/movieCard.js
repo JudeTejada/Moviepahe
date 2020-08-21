@@ -67,17 +67,17 @@ export default function MovieCard({
           <CardUl>
             <CardLi>
               <CardTerm>Language:</CardTerm>
-              <span class="description">{original_language}</span>
+              <span className="description">{original_language}</span>
             </CardLi>
 
             <CardLi>
-              <CardTerm class="term">Vote Average:</CardTerm>
-              <span class="description">{vote_average}</span>
+              <CardTerm>Vote Average:</CardTerm>
+              <span className="description">{vote_average}</span>
             </CardLi>
 
             <CardLi>
-              <CardTerm class="term">Release Date</CardTerm>
-              <span class="description">{release_date}</span>
+              <CardTerm>Release Date</CardTerm>
+              <span className="description">{release_date}</span>
             </CardLi>
           </CardUl>
         </CardDetails>

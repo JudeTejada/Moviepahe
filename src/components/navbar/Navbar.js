@@ -6,7 +6,6 @@ import { NavUl, NavList, NavTitle, NavContainer } from "./navbar.styled";
 import { fetchGenresStart } from "../../redux/genre/genre.actions";
 import { isEmpty } from "../../util/util";
 function Navbar({ fetchGenresStart, genres }) {
-  console.log(genres);
   useEffect(() => {
     fetchGenresStart();
   }, []);

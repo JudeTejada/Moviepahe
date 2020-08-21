@@ -1,8 +1,8 @@
 import searchActionTypes from "./search.types";
 
-export const queryMovieStart = (query) => ({
+export const queryMovieStart = (query, page) => ({
   type: searchActionTypes.QUERY_MOVIE_START,
-  payload: query,
+  payload: { query, page },
 });
 
 export const queryMovieFinish = (movies) => ({

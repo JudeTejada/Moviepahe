@@ -49,14 +49,9 @@ export const CardUl = styled.ul`
   margin-top: 0.7em;
   list-style: none;
   transition: all 0.3s;
-  display: none;
-  position: absolute;
   z-index: 100;
-  bottom: 0;
-
   left: 0;
   width: 100%;
-  padding: 2.4em;
   bottom: -11em;
   background: #202020;
   color: #fff;
@@ -79,6 +74,8 @@ export const CardTerm = styled.span`
   opacity: 0.6;
 `;
 
+export const CardWrapper = styled.div``;
+
 export const CardContainer = styled.div`
   width: 100%;
   display: flex;
@@ -87,12 +84,9 @@ export const CardContainer = styled.div`
   position: relative;
   cursor: pointer;
   transition: all 0.3s;
-  z-index: 10;
+  overflow: hidden;
+
   &:hover {
     transform: scale(1.02);
-  }
-
-  &:hover ${CardUl} {
-    display: block;
   }
 `;

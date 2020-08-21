@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import { queryMovieStart } from "../redux/search/search.action";
@@ -8,12 +8,17 @@ import { HeadingOne } from "../util/global.styles";
 import MovieList from "../components/movieList/movieList";
 
 function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
-    console.log("SEARCHING");
+    queryMovieStart(match.params.movie, page);
+  }, [match.params.movie, page]);
 
-    queryMovieStart(match.params.movie);
-  }, [match.params.movie]);
+  const loadMore = () => {
+    setPage(page + 1);
 
+    console.log(page);
+  };
   return (
     <>
       {!moviesFound.results ? (
@@ -22,6 +27,8 @@ function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
         <div>
           <HeadingOne>Search Result for {match.params.movie} </HeadingOne>
           <MovieList movies={moviesFound.results} />
+          {isLoading && <h1>Loading More Movies</h1>}
+          <button onClick={loadMore}>Load More Movies</button>
         </div>
       )}
     </>
@@ -33,6 +40,6 @@ const mapStateToProps = (state) => ({
   isLoading: state.search.isLoading,
 });
 const mapDispatchToProps = (dispatch) => ({
-  queryMovieStart: (query) => dispatch(queryMovieStart(query)),
+  queryMovieStart: (query, page) => dispatch(queryMovieStart(query, page)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

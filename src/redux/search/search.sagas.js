@@ -7,9 +7,12 @@ import { fetchMovie } from "../../api/tmbdb";
 import { queryMovieFinish, queryMovieFailure } from "./search.action";
 
 export function* searchStart({ payload }) {
+  const { query, page } = payload;
   try {
-    const data = yield call(fetchMovie, payload);
+    console.log(page, query);
+    const data = yield call(fetchMovie, query, page);
 
+    console.log(data);
     yield put(queryMovieFinish(data));
   } catch (err) {
     yield put(queryMovieFailure(err));
