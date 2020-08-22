@@ -1,34 +1,66 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
-import { queryMovieStart } from "../redux/search/search.action";
+import {
+  queryMovieStart,
+  loadMoreMoviesStart,
+} from "../redux/search/search.action";
 
 import { HeadingOne } from "../util/global.styles";
 
+import CustomButton from "../components/button/button";
 import MovieList from "../components/movieList/movieList";
 
-function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
+function SearchPage({
+  match,
+  queryMovieStart,
+  moviesFound,
+  isLoading,
+  errorMessage,
+  loadMoreMoviesStart,
+}) {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    queryMovieStart(match.params.movie, page);
-  }, [match.params.movie, page]);
+    queryMovieStart(match.params.movie);
+  }, [match.params.movie]);
 
   const loadMore = () => {
     setPage(page + 1);
 
-    console.log(page);
+    loadMoreMoviesStart(match.params.movie, page);
   };
+
+  const handleScroll = (event) => {
+    const elm = event.target;
+
+    console.log("SCROLLING");
+    // // const { loadMoreActionCreator } = this.props;
+    // const { page } = this.state;
+    // const element = event.target;
+    // if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+    //   // loadMoreActionCreator(currentCount);
+    //   // this.setState({
+    //   //   currentCount: currentCount + 20,
+    //   // });
+    // }
+    // console.log("LOADING");
+  };
+
+  if (errorMessage) {
+    return <h1>Sorry Something Went wrong with the Page</h1>;
+  }
   return (
     <>
-      {!moviesFound.results ? (
+      {!moviesFound ? (
         <h1>Loading</h1>
       ) : (
-        <div>
+        <div onScroll={handleScroll}>
           <HeadingOne>Search Result for {match.params.movie} </HeadingOne>
-          <MovieList movies={moviesFound.results} />
-          {isLoading && <h1>Loading More Movies</h1>}
-          <button onClick={loadMore}>Load More Movies</button>
+          <MovieList movies={moviesFound} />
+          <CustomButton onClick={loadMore} loadMorebutton>
+            Load More Movies
+          </CustomButton>
         </div>
       )}
     </>
@@ -38,8 +70,11 @@ function SearchPage({ match, queryMovieStart, moviesFound, isLoading }) {
 const mapStateToProps = (state) => ({
   moviesFound: state.search.moviesFound,
   isLoading: state.search.isLoading,
+  errorMessage: state.search.errorMessage,
 });
 const mapDispatchToProps = (dispatch) => ({
-  queryMovieStart: (query, page) => dispatch(queryMovieStart(query, page)),
+  queryMovieStart: (query) => dispatch(queryMovieStart(query)),
+  loadMoreMoviesStart: (query, page) =>
+    dispatch(loadMoreMoviesStart(query, page)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

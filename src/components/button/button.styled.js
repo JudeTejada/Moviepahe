@@ -7,15 +7,10 @@ const buttonStyles = css`
 `;
 
 const movieButtonStyle = css`
-  background: var(--tertiary-color-light);
   color: #fff;
-  border: none;
+
   box-shadow: 0 10px 20px black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  padding: 0 25px;
+
   transition: all 0.3s;
 
   & span {
@@ -32,17 +27,34 @@ const movieButtonStyle = css`
   }
 `;
 
+const loadMorebutton = css`
+  text-align: center;
+  color: #fff;
+  opacity: 0.7;
+  margin: 0 auto;
+  margin-top: 3em;
+`;
+
 const getButtonStyle = (props) => {
   if (props.movieButtonStyle) {
     return movieButtonStyle;
+  }
+  if (props.loadMorebutton) {
+    return loadMorebutton;
   }
   return buttonStyles;
 };
 
 export const CustomButtonContainer = styled.button`
+  background: var(--tertiary-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border: none;
   cursor: pointer;
   margin-top: 2.8em;
-
+  padding: 0 25px;
   font-family: inherit;
   font-weight: 500;
   font-size: var(--button-size);

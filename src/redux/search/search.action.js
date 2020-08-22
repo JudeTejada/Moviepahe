@@ -1,8 +1,8 @@
 import searchActionTypes from "./search.types";
 
-export const queryMovieStart = (query, page) => ({
+export const queryMovieStart = (query) => ({
   type: searchActionTypes.QUERY_MOVIE_START,
-  payload: { query, page },
+  payload: query,
 });
 
 export const queryMovieFinish = (movies) => ({
@@ -12,5 +12,20 @@ export const queryMovieFinish = (movies) => ({
 
 export const queryMovieFailure = (error) => ({
   type: searchActionTypes.QUERY_MOVIE_FAILURE,
+  payload: error,
+});
+
+export const loadMoreMoviesStart = (query, page) => ({
+  type: searchActionTypes.LOAD_MORE_MOVIES_START,
+  payload: { query, page },
+});
+
+export const loadMoreMovieFinish = (movies) => ({
+  type: searchActionTypes.LOAD_MORE_MOVIES_SUCCESS,
+  payload: movies,
+});
+
+export const loadMoreMovieFailure = (error) => ({
+  type: searchActionTypes.LOAD_MORE_MOVIES_FAILURE,
   payload: error,
 });
