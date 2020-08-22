@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-
+import * as lodash from "lodash";
 import {
   queryMovieStart,
   loadMoreMoviesStart,
@@ -50,19 +50,19 @@ function SearchPage({
   if (errorMessage) {
     return <h1>Sorry Something Went wrong with the Page</h1>;
   }
+
+  if (lodash.isEmpty(moviesFound) && isLoading) return <h1>Searching......</h1>;
+
+  console.log(isLoading);
   return (
     <>
-      {!moviesFound ? (
-        <h1>Loading</h1>
-      ) : (
-        <div onScroll={handleScroll}>
-          <HeadingOne>Search Result for {match.params.movie} </HeadingOne>
-          <MovieList movies={moviesFound} />
-          <CustomButton onClick={loadMore} loadMorebutton>
-            Load More Movies
-          </CustomButton>
-        </div>
-      )}
+      <div onScroll={handleScroll}>
+        <HeadingOne>Search Result for {match.params.movie} </HeadingOne>
+        <MovieList movies={moviesFound} />
+        <CustomButton onClick={loadMore} loadMorebutton>
+          {!isLoading ? "Load More Movies" : "Loading..."}
+        </CustomButton>
+      </div>
     </>
   );
 }

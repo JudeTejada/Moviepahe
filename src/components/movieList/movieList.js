@@ -8,8 +8,8 @@ export default function MovieList({ movies }) {
   return (
     <div>
       <ListContainer>
-        {movies.map((movie) => (
-          <MovieCard {...movie} key={movie.id} />
+        {movies.map((movie, i) => (
+          <MovieCard {...movie} key={i} />
         ))}
       </ListContainer>
     </div>

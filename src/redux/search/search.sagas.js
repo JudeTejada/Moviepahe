@@ -1,4 +1,4 @@
-import { takeLatest, call, put, all } from "redux-saga/effects";
+import { takeLatest, call, put, all, delay } from "redux-saga/effects";
 
 import searchActionTypes from "./search.types";
 
@@ -14,7 +14,7 @@ import {
 export function* searchStart({ payload }) {
   try {
     const data = yield call(fetchMovie, payload);
-
+    yield delay(1000);
     yield put(queryMovieFinish(data.results));
   } catch (err) {
     yield put(queryMovieFailure(err));
