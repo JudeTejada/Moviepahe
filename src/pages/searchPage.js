@@ -10,12 +10,14 @@ import { HeadingOne } from "../util/global.styles";
 
 import CustomButton from "../components/button/button";
 import MovieList from "../components/movieList/movieList";
+import Loader from "../components/loader/Loader";
 
 function SearchPage({
   match,
   queryMovieStart,
   moviesFound,
   isLoading,
+  hasMore,
   errorMessage,
   loadMoreMoviesStart,
 }) {
@@ -26,44 +28,25 @@ function SearchPage({
   }, [match.params.movie]);
 
   const loadMore = () => {
-    setPage(page + 1);
-
+    setPage((p) => p + 1);
     loadMoreMoviesStart(match.params.movie, page);
   };
+  console.log(hasMore);
 
-  const handleScroll = (event) => {
-    const elm = event.target;
+  if (errorMessage) return <h1>Sorry Something Went wrong with the Page</h1>;
+  if (lodash.isEmpty(moviesFound) && isLoading) return <h1>Loading...</h1>;
 
-    console.log("SCROLLING");
-    // // const { loadMoreActionCreator } = this.props;
-    // const { page } = this.state;
-    // const element = event.target;
-    // if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-    //   // loadMoreActionCreator(currentCount);
-    //   // this.setState({
-    //   //   currentCount: currentCount + 20,
-    //   // });
-    // }
-    // console.log("LOADING");
-  };
-
-  if (errorMessage) {
-    return <h1>Sorry Something Went wrong with the Page</h1>;
-  }
-
-  if (lodash.isEmpty(moviesFound) && isLoading) return <h1>Searching......</h1>;
-
-  console.log(isLoading);
   return (
-    <>
-      <div onScroll={handleScroll}>
-        <HeadingOne>Search Result for {match.params.movie} </HeadingOne>
-        <MovieList movies={moviesFound} />
+    <div>
+      <HeadingOne>Search Result for {match.params.movie} </HeadingOne>
+      <MovieList movies={moviesFound} />
+
+      {hasMore && (
         <CustomButton onClick={loadMore} loadMorebutton>
           {!isLoading ? "Load More Movies" : "Loading..."}
         </CustomButton>
-      </div>
-    </>
+      )}
+    </div>
   );
 }
 
@@ -71,6 +54,7 @@ const mapStateToProps = (state) => ({
   moviesFound: state.search.moviesFound,
   isLoading: state.search.isLoading,
   errorMessage: state.search.errorMessage,
+  hasMore: state.search.hasMore,
 });
 const mapDispatchToProps = (dispatch) => ({
   queryMovieStart: (query) => dispatch(queryMovieStart(query)),

@@ -29,3 +29,8 @@ export const loadMoreMovieFailure = (error) => ({
   type: searchActionTypes.LOAD_MORE_MOVIES_FAILURE,
   payload: error,
 });
+
+export const hasMoreMovies = (payload) => ({
+  type: searchActionTypes.HAS_MORE_MOVIES,
+  payload: payload,
+});

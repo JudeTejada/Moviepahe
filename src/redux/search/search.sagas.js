@@ -9,6 +9,7 @@ import {
   queryMovieFailure,
   loadMoreMovieFinish,
   loadMoreMovieFailure,
+  hasMoreMovies,
 } from "./search.action";
 
 export function* searchStart({ payload }) {
@@ -25,6 +26,8 @@ export function* loadMoreMovies({ payload }) {
   const { query, page } = payload;
   try {
     const data = yield call(fetchMovie, query, page);
+
+    if (page === data.total_pages) yield put(hasMoreMovies(false));
 
     yield put(loadMoreMovieFinish(data.results));
   } catch (err) {

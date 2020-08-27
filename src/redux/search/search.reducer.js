@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   moviesFound: [],
   isLoading: false,
   errorMessage: null,
+  hasMore: true,
 };
 
 const searchReducer = (state = INITIAL_STATE, action) => {
@@ -28,6 +29,12 @@ const searchReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLoading: false,
         moviesFound: [...moviesFound, ...action.payload],
+      };
+
+    case searchActionTypes.HAS_MORE_MOVIES:
+      return {
+        ...state,
+        hasMore: false,
       };
 
     case searchActionTypes.QUERY_MOVIE_FAILURE:
