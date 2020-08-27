@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 
     :root{
+        --body-background:#151515;
         --primary-color: #000;
         --secondary-color: ##1B1B1B;
         --tertiary-color-dark: #262626;
@@ -26,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size:62.5%;
     }
 	body {
-        background:var(--primary-color);
+        background:var(--body-background);
         color:#fff;
 	    font-family: 'Work Sans', sans-serif;
         padding:2em;

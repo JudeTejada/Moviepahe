@@ -15,7 +15,7 @@ import {
 export function* searchStart({ payload }) {
   try {
     const data = yield call(fetchMovie, payload);
-    yield delay(1000);
+
     yield put(queryMovieFinish(data.results));
   } catch (err) {
     yield put(queryMovieFailure(err));
@@ -28,7 +28,7 @@ export function* loadMoreMovies({ payload }) {
     const data = yield call(fetchMovie, query, page);
 
     if (page === data.total_pages) yield put(hasMoreMovies(false));
-
+    yield delay(1000);
     yield put(loadMoreMovieFinish(data.results));
   } catch (err) {
     yield put(loadMoreMovieFailure(err));

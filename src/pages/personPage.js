@@ -5,7 +5,7 @@ import { fetchPersonStart } from "../redux/person/person.actions";
 
 import PersonBiography from "../components/personBiography/PersonBiography";
 import PersonCasting from "../components/personCasting/PersonCasting";
-
+import Loader from "../components/loader/Loader";
 function PersonPage({ match, fetchPersonStart, person, casting, isFetching }) {
   useEffect(() => {
     const { personId } = match.params;
@@ -17,7 +17,7 @@ function PersonPage({ match, fetchPersonStart, person, casting, isFetching }) {
       <PersonCasting actor={person} casting={casting} />
     </div>
   ) : (
-    <h1>Loading</h1>
+    <Loader />
   );
 }
 const mapStateToProps = (state) => ({

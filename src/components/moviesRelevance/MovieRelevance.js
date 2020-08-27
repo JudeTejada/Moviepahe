@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchMoviesStart } from "../../redux/movies/movies.actions";
 
 import MovieList from "../movieList/movieList";
-
+import Loader from "../loader/Loader";
 function MovieRelevance({
   initMovies,
   fetchMoviesStart,
@@ -15,11 +15,7 @@ function MovieRelevance({
     fetchMoviesStart(movieRelevance);
   }, [movieRelevance]);
 
-  return !initMovies ? (
-    <h1>Loading</h1>
-  ) : (
-    <MovieList movies={initMovies.results} />
-  );
+  return !initMovies ? <Loader /> : <MovieList movies={initMovies.results} />;
 }
 
 const mapStateToProps = (state) => ({

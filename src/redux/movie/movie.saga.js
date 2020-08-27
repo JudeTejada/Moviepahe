@@ -9,17 +9,14 @@ import * as api from "../../api/tmbdb";
 export function* fetchMovieDetail({ payload }) {
   const { category, id } = payload;
   try {
+    const [movieDetails, credits, reviews, similar] = yield all([
+      call(api.fetchSingleRequest, category, id),
+      call(api.fetchMovieCredits, category, id),
+      call(api.fetchMovieReviews, category, id),
+      call(api.fetchSimilarMovies, category, id),
+    ]);
 
-  const [movieDetails, credits, reviews, similar ] = yield all([
-    call(api.fetchSingleRequest, category,id),
-    call(api.fetchMovieCredits, category,id),
-    call(api.fetchMovieReviews, category,id),
-    call(api.fetchSimilarMovies, category,id),
-  
-  ]);
-
-
-    yield put(fetchMovieSuccess({movieDetails, credits, reviews, similar}));
+    yield put(fetchMovieSuccess({ movieDetails, credits, reviews, similar }));
   } catch (err) {
     yield put(fetchMovieFailure(err));
   }

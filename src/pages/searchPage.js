@@ -31,10 +31,9 @@ function SearchPage({
     setPage((p) => p + 1);
     loadMoreMoviesStart(match.params.movie, page);
   };
-  console.log(hasMore);
 
   if (errorMessage) return <h1>Sorry Something Went wrong with the Page</h1>;
-  if (lodash.isEmpty(moviesFound) && isLoading) return <h1>Loading...</h1>;
+  if (lodash.isEmpty(moviesFound) && isLoading) return <Loader />;
 
   return (
     <div>

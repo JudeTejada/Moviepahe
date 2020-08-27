@@ -1,4 +1,4 @@
-import { takeLatest, call, put, all } from "redux-saga/effects";
+import { takeLatest, call, put, all, delay } from "redux-saga/effects";
 
 import {
   fetchGenresSuccess,
@@ -13,6 +13,7 @@ import { fetchRequest } from "../../api/tmbdb";
 export function* fetchMovieByGenreAsync({ payload }) {
   try {
     const genreMovies = yield call(fetchRequest, payload);
+    yield delay(1000);
     yield put(fetchMovieByGenreSuccess(genreMovies));
   } catch (error) {
     yield put(fetchMovieByGenreFailure(error));

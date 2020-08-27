@@ -10,17 +10,23 @@ function Navbar({ fetchGenresStart, genres }) {
     fetchGenresStart();
   }, []);
   return (
-    <NavContainer>
-      <NavTitle>Genres</NavTitle>
-      <NavUl>
-        {genres &&
-          genres.map(({ name, id }) => (
-            <Link to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`} key={id}>
-              <NavList>{name}</NavList>
-            </Link>
-          ))}
-      </NavUl>
-    </NavContainer>
+    <>
+      {genres && (
+        <NavContainer>
+          <NavTitle>Genres</NavTitle>
+          <NavUl>
+            {genres.map(({ name, id }) => (
+              <Link
+                to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`}
+                key={id}
+              >
+                <NavList>{name}</NavList>
+              </Link>
+            ))}
+          </NavUl>
+        </NavContainer>
+      )}
+    </>
   );
 }
 const mapStateToProps = (state) => ({

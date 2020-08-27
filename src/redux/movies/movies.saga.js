@@ -1,4 +1,4 @@
-import { takeLatest, call, put, all } from "redux-saga/effects";
+import { takeLatest, call, put, all, delay } from "redux-saga/effects";
 
 import { fetchMoviesSuccess, fetchMoviesFailure } from "./movies.actions";
 
@@ -10,6 +10,7 @@ export function* fetchMoviesAsync({ payload }) {
   try {
     const mainMovies = yield call(fetchRequest, `/movie/${payload}`, 1);
 
+    yield delay(1200);
     yield put({
       type: moviesActionTypes.FETCH_MOVIES_SUCCESS,
       payload: {

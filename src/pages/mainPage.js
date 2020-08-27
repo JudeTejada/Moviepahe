@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import MovieRelevance from "../components/moviesRelevance/MovieRelevance";
 import OptionCategory from "../components/optionCategory/optionCategory";
@@ -6,12 +6,9 @@ import OptionCategory from "../components/optionCategory/optionCategory";
 import { HeadingOne } from "../util/global.styles";
 
 function MainPage({}) {
-  const handleScroll = () => {
-    console.log("SCROLLING");
-  };
   return (
     <>
-      <div className="MainPage" onScroll={handleScroll}>
+      <div className="MainPage">
         <HeadingOne>A library of Movies</HeadingOne>
         <OptionCategory />
         <MovieRelevance />
