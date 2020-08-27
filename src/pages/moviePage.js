@@ -8,6 +8,7 @@ import MovieCasts from "../components/movieCasts/MovieCasts";
 import SimilarMovies from "../components/similarMovies/SimilarMovies";
 import Reviews from "../components/reviews/Reviews";
 import Loader from "../components/loader/Loader";
+
 import { ContainerWrapper } from "../util/global.styles";
 
 function MoviePage({

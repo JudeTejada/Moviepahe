@@ -10,6 +10,7 @@ const initialState = {
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
     case moviesActionTypes.FETCH_MOVIES_START:
+    case moviesActionTypes.LOAD_MORE_MOVIES_START:
       return {
         ...state,
         isFetching: true,
@@ -22,7 +23,15 @@ const moviesReducer = (state = initialState, action) => {
         initMovies: action.payload,
       };
 
+    case moviesActionTypes.LOAD_MORE_MOVIES_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        initMovies: [...state.initMovies, action.payload],
+      };
+
     case moviesActionTypes.FETCH_MOVIES_FAILURE:
+    case moviesActionTypes.LOAD_MORE_MOVIES_FAILURE:
       return {
         ...state,
         isFetching: false,

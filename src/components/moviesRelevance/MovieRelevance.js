@@ -5,6 +5,8 @@ import { fetchMoviesStart } from "../../redux/movies/movies.actions";
 
 import MovieList from "../movieList/movieList";
 import Loader from "../loader/Loader";
+import CustomButton from "../button/button";
+
 function MovieRelevance({
   initMovies,
   fetchMoviesStart,
@@ -15,7 +17,17 @@ function MovieRelevance({
     fetchMoviesStart(movieRelevance);
   }, [movieRelevance]);
 
-  return !initMovies ? <Loader /> : <MovieList movies={initMovies.results} />;
+  const loadMore = () => {};
+  return !initMovies ? (
+    <Loader />
+  ) : (
+    <>
+      <MovieList movies={initMovies} />;
+      <CustomButton onClick={loadMore} loadMorebutton>
+        {!isFetching ? "Load More Movies" : "Loading..."}
+      </CustomButton>
+    </>
+  );
 }
 
 const mapStateToProps = (state) => ({

@@ -14,18 +14,27 @@ export function* fetchMoviesAsync({ payload }) {
     yield put({
       type: moviesActionTypes.FETCH_MOVIES_SUCCESS,
       payload: {
-        mainMovies,
+        mainMovies: mainMovies.results,
       },
     });
   } catch (error) {
     yield put(fetchMoviesFailure(error));
   }
 }
+export function* loadMoreMovies({ payload }) {
+  const { type, page } = payload;
+  try {
+  } catch (err) {}
+}
 
 export function* fetchMoviesStart() {
   yield takeLatest(moviesActionTypes.FETCH_MOVIES_START, fetchMoviesAsync);
 }
 
+export function* onLoadMoreMovies() {
+  yield takeLatest(moviesActionTypes.LOAD_MORE_MOVIES_START, loadMoreMovies);
+}
+
 export function* moviesSaga() {
-  yield all([call(fetchMoviesStart)]);
+  yield all([call(fetchMoviesStart), call(onLoadMoreMovies)]);
 }

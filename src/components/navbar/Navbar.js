@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
 
-import { NavUl, NavList, NavTitle, NavContainer } from "./navbar.styled";
+import { NavUl, NavList, NavTitle, NavContainer, NavLi } from "./navbar.styled";
 import { fetchGenresStart } from "../../redux/genre/genre.actions";
 import { isEmpty } from "../../util/util";
 function Navbar({ fetchGenresStart, genres }) {
@@ -16,12 +16,14 @@ function Navbar({ fetchGenresStart, genres }) {
           <NavTitle>Genres</NavTitle>
           <NavUl>
             {genres.map(({ name, id }) => (
-              <Link
+              <NavList
                 to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`}
                 key={id}
+                activeClassName="active"
               >
-                <NavList>{name}</NavList>
-              </Link>
+                {name}
+                <NavLi> </NavLi>
+              </NavList>
             ))}
           </NavUl>
         </NavContainer>
