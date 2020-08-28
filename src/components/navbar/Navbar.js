@@ -13,6 +13,30 @@ function Navbar({ fetchGenresStart, genres }) {
     <>
       {genres && (
         <NavContainer>
+          <NavTitle>Discover</NavTitle>
+          <NavUl>
+            <NavList
+              to={`${process.env.PUBLIC_URL}/discover/popular`}
+              activeClassName="active"
+            >
+              💎 Popular
+            </NavList>
+
+            <NavList
+              to={`${process.env.PUBLIC_URL}/discover/upcoming`}
+              activeClassName="active"
+            >
+              ✨ Upcoming
+            </NavList>
+
+            <NavList
+              to={`${process.env.PUBLIC_URL}/discover/top_rated`}
+              activeClassName="active"
+            >
+              💖 Top Rated
+            </NavList>
+          </NavUl>
+
           <NavTitle>Genres</NavTitle>
           <NavUl>
             {genres.map(({ name, id }) => (
@@ -22,7 +46,6 @@ function Navbar({ fetchGenresStart, genres }) {
                 activeClassName="active"
               >
                 {name}
-                <NavLi> </NavLi>
               </NavList>
             ))}
           </NavUl>

@@ -4,7 +4,7 @@ import { fetchMovieByGenreStart } from "../redux/genre/genre.actions";
 
 import { HeadingOne } from "../util/global.styles";
 import MovieList from "../components/movieList/movieList";
-
+import Loader from "../components/loader/Loader";
 function GenrePage({ match, fetchMovieByGenreStart, genreMovies, isFetching }) {
   console.log("movies Found", isFetching);
   const query = `/discover/movie?&with_genres=${match.params.genreId}`;
@@ -14,7 +14,7 @@ function GenrePage({ match, fetchMovieByGenreStart, genreMovies, isFetching }) {
   return (
     <div>
       {isFetching ? (
-        <h1>Loading</h1>
+        <Loader />
       ) : (
         <>
           <HeadingOne>{match.params.movieGenre}</HeadingOne>

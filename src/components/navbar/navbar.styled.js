@@ -5,9 +5,6 @@ export const NavContainer = styled.nav`
 `;
 
 export const NavTitle = styled.h3`
-  -webkit-tap-highlight-color: transparent;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   letter-spacing: 0;
   color: #fff;
   text-rendering: optimizeLegibility;
@@ -19,6 +16,10 @@ export const NavTitle = styled.h3`
   display: block;
   margin-bottom: 16px;
   font-weight: 700;
+
+  &:not(:first-child) {
+    margin-top: 1.4em;
+  }
 `;
 
 export const NavUl = styled.ul`
@@ -36,11 +37,13 @@ export const NavList = styled(NavLink)`
   padding-left: 0.5em;
   margin-bottom: 0.8em;
   display: flex;
-  padding: 0.5em;
+  padding: 0.6em;
+  transition: all 0.3s;
+  border-radius: 2em;
 
   &.active {
-    border: 1px solid #fff;
-    border-radius: 2em;
+    background: #fff;
+    color: var(--tertiary-color-light);
   }
 `;
 
