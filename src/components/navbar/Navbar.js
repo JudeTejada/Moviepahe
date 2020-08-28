@@ -1,11 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 
 import { NavUl, NavList, NavTitle, NavContainer, NavLi } from "./navbar.styled";
+
 import { fetchGenresStart } from "../../redux/genre/genre.actions";
+
 import { isEmpty } from "../../util/util";
+
+import CustomButton from "../button/button";
+
 function Navbar({ fetchGenresStart, genres }) {
+  const [toggle, setToggle] = useState(true);
   useEffect(() => {
     fetchGenresStart();
   }, []);
@@ -39,15 +45,34 @@ function Navbar({ fetchGenresStart, genres }) {
 
           <NavTitle>Genres</NavTitle>
           <NavUl>
-            {genres.map(({ name, id }) => (
-              <NavList
-                to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`}
-                key={id}
-                activeClassName="active"
-              >
-                {name}
-              </NavList>
-            ))}
+            {genres.map(({ name, id, ...props }, i) => {
+              if (i > 5) {
+                return (
+                  <NavList
+                    to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`}
+                    key={id}
+                    activeClassName="active"
+                    togglehide={toggle}
+                  >
+                    {name}
+                  </NavList>
+                );
+              } else {
+                return (
+                  <NavList
+                    to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`}
+                    key={id}
+                    activeClassName="active"
+                  >
+                    {name}
+                  </NavList>
+                );
+              }
+            })}
+
+            <CustomButton hideButton onClick={() => setToggle(!toggle)}>
+              {toggle ? "Show All" : "Hide All"}
+            </CustomButton>
           </NavUl>
         </NavContainer>
       )}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FormContainer = styled.form`
   width: 70%;
 
-  margin-left: 2em;
+  margin-left: 8em;
 `;
 
 export const SearchInput = styled.input`

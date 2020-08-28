@@ -15,7 +15,7 @@ function MovieRelevance({
 }) {
   useEffect(() => {
     fetchMoviesStart(movieRelevance);
-  }, [movieRelevance]);
+  }, [movieRelevance, fetchMoviesStart]);
 
   const loadMore = () => {};
   return !initMovies ? (

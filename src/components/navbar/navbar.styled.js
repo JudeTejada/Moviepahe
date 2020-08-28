@@ -45,6 +45,11 @@ export const NavList = styled(NavLink)`
     background: #fff;
     color: var(--tertiary-color-light);
   }
+  &:hover {
+    opacity: 0.8;
+  }
+
+  ${(props) => props.togglehide && "display:none"}
 `;
 
 export const NavLi = styled.li`

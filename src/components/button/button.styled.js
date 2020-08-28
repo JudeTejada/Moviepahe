@@ -35,12 +35,25 @@ const loadMorebutton = css`
   margin-top: 3em;
 `;
 
+const hideButton = css`
+  margin: 0;
+  padding: 0;
+  background: none;
+  opacity: 0.4;
+  text-align: left;
+  padding: 0.8em;
+  color: #fff;
+`;
 const getButtonStyle = (props) => {
   if (props.movieButtonStyle) {
     return movieButtonStyle;
   }
   if (props.loadMorebutton) {
     return loadMorebutton;
+  }
+
+  if (props.hideButton) {
+    return hideButton;
   }
   return buttonStyles;
 };

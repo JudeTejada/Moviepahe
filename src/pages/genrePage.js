@@ -10,7 +10,7 @@ function GenrePage({ match, fetchMovieByGenreStart, genreMovies, isFetching }) {
   const query = `/discover/movie?&with_genres=${match.params.genreId}`;
   useEffect(() => {
     fetchMovieByGenreStart(query);
-  }, [match.params.movieGenre]);
+  }, [match.params.movieGenre, fetchMovieByGenreStart, query]);
   return (
     <div>
       {isFetching ? (
