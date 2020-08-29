@@ -31,7 +31,7 @@ function MovieRelevance({
 }
 
 const mapStateToProps = (state) => ({
-  initMovies: state.movies.initMovies.mainMovies,
+  initMovies: state.movies.initMovies,
   isFetching: state.movies.isFetching,
   movieRelevance: state.movies.movieRelevance,
 });

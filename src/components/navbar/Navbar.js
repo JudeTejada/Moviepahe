@@ -46,7 +46,7 @@ function Navbar({ fetchGenresStart, genres }) {
           <NavTitle>Genres</NavTitle>
           <NavUl>
             {genres.map(({ name, id, ...props }, i) => {
-              if (i > 5) {
+              if (i > 4) {
                 return (
                   <NavList
                     to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`}

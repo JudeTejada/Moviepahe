@@ -5,6 +5,12 @@ const initialState = {
   isFetching: false,
   errorMessage: undefined,
   movieRelevance: "upcoming",
+  discover: {
+    genre: "",
+    sort: "",
+    year: "",
+    query: "",
+  },
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -38,13 +44,8 @@ const moviesReducer = (state = initialState, action) => {
         errorMessage: action.payload,
       };
 
-    case moviesActionTypes.CHANGE_RELEVANCE:
-      return {
-        ...state,
-        isFetching: true,
-        initMovies: [],
-        movieRelevance: action.payload,
-      };
+    case moviesActionTypes.SET_YEAR_FILTER:
+
     default:
       return state;
   }
