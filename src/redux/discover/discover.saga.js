@@ -9,7 +9,6 @@ export function* fetchDiscoverMoviesStartAsync({ payload }) {
   try {
     const movies = yield call(fetchRequest, `/movie/${payload}`, 1);
 
-    console.log("DISCOVER SAGA");
     yield put(fetchDiscoverSuccess(movies.results));
   } catch (error) {
     yield put(fetchDiscoverFailure(error));

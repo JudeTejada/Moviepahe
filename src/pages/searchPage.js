@@ -25,7 +25,7 @@ function SearchPage({
 
   useEffect(() => {
     queryMovieStart(match.params.movie);
-  }, [match.params.movie]);
+  }, [match.params.movie, queryMovieStart]);
 
   const loadMore = () => {
     setPage((p) => p + 1);

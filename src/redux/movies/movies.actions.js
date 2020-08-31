@@ -34,18 +34,3 @@ export const hasMoreMovies = (payload) => ({
   type: moviesActionTypes.HAS_MORE_MOVIES,
   payload: payload,
 });
-
-export const setYearFilter = (year) => ({
-  type: moviesActionTypes.SET_YEAR_FILTER,
-  payload: year,
-});
-
-export const setSortFilter = (sort) => ({
-  type: moviesActionTypes.SET_SORT_FILTER,
-  payload: sort,
-});
-
-export const setGenreFilter = (genre) => ({
-  type: moviesActionTypes.SET_GENRE_FILTER,
-  payload: genre,
-});

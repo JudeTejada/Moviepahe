@@ -12,17 +12,22 @@ function MovieRelevance({
   fetchMoviesStart,
   isFetching,
   movieRelevance,
+  filterBy,
 }) {
+  const queryDiscover = "/discover/movie?";
   useEffect(() => {
-    fetchMoviesStart(movieRelevance);
-  }, [movieRelevance, fetchMoviesStart]);
+    const { query } = filterBy;
+    console.log(filterBy);
+    fetchMoviesStart(`${queryDiscover}${query}`);
+  }, [movieRelevance, fetchMoviesStart, filterBy.query, filterBy]);
 
   const loadMore = () => {};
+
   return !initMovies ? (
     <Loader />
   ) : (
     <>
-      <MovieList movies={initMovies} />;
+      <MovieList movies={initMovies} />
       <CustomButton onClick={loadMore} loadMorebutton>
         {!isFetching ? "Load More Movies" : "Loading..."}
       </CustomButton>
@@ -34,6 +39,7 @@ const mapStateToProps = (state) => ({
   initMovies: state.movies.initMovies,
   isFetching: state.movies.isFetching,
   movieRelevance: state.movies.movieRelevance,
+  filterBy: state.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({

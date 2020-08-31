@@ -6,6 +6,8 @@ import { movieSaga } from "./movie/movie.saga";
 import { personSaga } from "./person/person.saga";
 import { genreSaga } from "./genre/genre.saga";
 import { discoverSaga } from "./discover/discover.saga";
+import { filterSaga } from "./filter/filter.saga";
+
 export default function* rootSaga() {
   yield all([
     call(moviesSaga),
@@ -14,5 +16,6 @@ export default function* rootSaga() {
     call(personSaga),
     call(genreSaga),
     call(discoverSaga),
+    call(filterSaga),
   ]);
 }

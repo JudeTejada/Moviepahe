@@ -3,7 +3,6 @@ import React from "react";
 import {
   CardContainer,
   CardTitle,
-  CardDate,
   CardImageContainer,
   CardDetails,
   LinkContainer,
@@ -25,32 +24,6 @@ export default function MovieCard({
 }) {
   const tmdbPosterPath = "https://image.tmdb.org/t/p/w185_and_h278_face/";
 
-  const genres = [
-    {
-      id: 28,
-      name: "Action",
-    },
-
-    {
-      id: 12,
-      name: "Adventure",
-    },
-
-    {
-      id: 16,
-      name: "Animation",
-    },
-
-    {
-      id: 35,
-      name: "Comdey",
-    },
-
-    {
-      id: 80,
-      name: "Crime",
-    },
-  ];
   return (
     <LinkContainer to={`/movie/${id}`}>
       <CardContainer>
@@ -59,6 +32,7 @@ export default function MovieCard({
             src={
               poster_path ? `${tmdbPosterPath + poster_path}` : imgPlaceholder
             }
+            alt={title}
           />
         </CardImageContainer>
         <CardDetails>

@@ -6,6 +6,7 @@ import movieReducer from "./movie/movie.reducer";
 import personReducer from "./person/person.reducer";
 import genreReducer from "./genre/genre.reducer";
 import discoverReducer from "./discover/discover.reducer";
+import filterReducer from "./filter/filter.reducer";
 
 const rootReducer = combineReducers({
   movies: moviesReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   person: personReducer,
   genre: genreReducer,
   discover: discoverReducer,
+  filter: filterReducer,
 });
 
 export default rootReducer;

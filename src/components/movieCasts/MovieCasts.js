@@ -3,7 +3,7 @@ import React from "react";
 import PeopleList from "../peopleList/PeopleList";
 import MovieDetails from "../movieDetails/MovieDetails";
 
-import { CastsWrapper, Container } from "./MovieCasts.styled";
+import { CastsWrapper } from "./MovieCasts.styled";
 import { SectionContainer } from "../../util/global.styles";
 import { HeadingTwo } from "../../util/global.styles";
 

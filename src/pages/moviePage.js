@@ -25,7 +25,7 @@ function MoviePage({
       category: "movie",
       id: match.params.id,
     });
-  }, [match.params.id]);
+  }, [match.params.id, fetchMovieStart]);
 
   return !isFetching ? (
     <ContainerWrapper>

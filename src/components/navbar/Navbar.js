@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 
-import { NavUl, NavList, NavTitle, NavContainer, NavLi } from "./navbar.styled";
+import { NavUl, NavList, NavTitle, NavContainer } from "./navbar.styled";
 
 import { fetchGenresStart } from "../../redux/genre/genre.actions";
-
-import { isEmpty } from "../../util/util";
 
 import CustomButton from "../button/button";
 
@@ -14,7 +12,7 @@ function Navbar({ fetchGenresStart, genres }) {
   const [toggle, setToggle] = useState(true);
   useEffect(() => {
     fetchGenresStart();
-  }, []);
+  }, [fetchGenresStart]);
   return (
     <>
       {genres && (
@@ -25,21 +23,32 @@ function Navbar({ fetchGenresStart, genres }) {
               to={`${process.env.PUBLIC_URL}/discover/popular`}
               activeClassName="active"
             >
-              💎 Popular
+              <span role="img" aria-label="navbar icon">
+                💎
+              </span>{" "}
+              Popular
             </NavList>
 
             <NavList
               to={`${process.env.PUBLIC_URL}/discover/upcoming`}
               activeClassName="active"
             >
-              ✨ Upcoming
+              {" "}
+              <span role="img" aria-label="navbar icon">
+                ✨
+              </span>
+              Upcoming
             </NavList>
 
             <NavList
               to={`${process.env.PUBLIC_URL}/discover/top_rated`}
               activeClassName="active"
             >
-              💖 Top Rated
+              {" "}
+              <span role="img" aria-label="navbar icon">
+                💖
+              </span>
+              Top Rated
             </NavList>
           </NavUl>
 
@@ -54,6 +63,9 @@ function Navbar({ fetchGenresStart, genres }) {
                     activeClassName="active"
                     togglehide={toggle}
                   >
+                    <span role="img" aria-label="navbar icon">
+                      ▶️
+                    </span>{" "}
                     {name}
                   </NavList>
                 );
@@ -64,6 +76,9 @@ function Navbar({ fetchGenresStart, genres }) {
                     key={id}
                     activeClassName="active"
                   >
+                    <span role="img" aria-label="navbar icon">
+                      ▶️
+                    </span>{" "}
                     {name}
                   </NavList>
                 );

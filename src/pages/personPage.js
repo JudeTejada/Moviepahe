@@ -10,7 +10,7 @@ function PersonPage({ match, fetchPersonStart, person, casting, isFetching }) {
   useEffect(() => {
     const { personId } = match.params;
     fetchPersonStart({ category: "person", id: personId });
-  }, [match.params.personId, fetchPersonStart]);
+  }, [match.params.personId, fetchPersonStart, match.params]);
   return !isFetching ? (
     <div>
       <PersonBiography actor={person} />
