@@ -17,9 +17,8 @@ function MovieRelevance({
   const queryDiscover = "/discover/movie?";
   useEffect(() => {
     const { query } = filterBy;
-    console.log(filterBy);
     fetchMoviesStart(`${queryDiscover}${query}`);
-  }, [movieRelevance, fetchMoviesStart, filterBy.query, filterBy]);
+  }, [filterBy.query]);
 
   const loadMore = () => {};
 
@@ -39,7 +38,7 @@ const mapStateToProps = (state) => ({
   initMovies: state.movies.initMovies,
   isFetching: state.movies.isFetching,
   movieRelevance: state.movies.movieRelevance,
-  filterBy: state.filter,
+  filterBy: state.filter.filterBy,
 });
 
 const mapDispatchToProps = (dispatch) => ({

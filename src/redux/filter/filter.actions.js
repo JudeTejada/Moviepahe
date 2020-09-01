@@ -14,3 +14,8 @@ export const setGenreFilter = (genre) => ({
   type: filterActionTypes.SET_GENRE_FILTER,
   payload: genre,
 });
+
+export const setQuery = (query) => ({
+  type: filterActionTypes.UPDATE_QUERY,
+  payload: query,
+});
