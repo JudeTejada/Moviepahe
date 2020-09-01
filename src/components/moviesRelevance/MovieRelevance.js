@@ -22,7 +22,7 @@ function MovieRelevance({
 
   const loadMore = () => {};
 
-  return !initMovies ? (
+  return !initMovies || isFetching ? (
     <Loader />
   ) : (
     <>
