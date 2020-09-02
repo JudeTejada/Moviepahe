@@ -4,6 +4,9 @@ import {
   fetchGenresSuccess,
   fetchMovieByGenreSuccess,
   fetchMovieByGenreFailure,
+  loadMoreMovieFinish,
+  loadMoreMovieFailure,
+  hasMoreMovies,
 } from "./genre.actions";
 
 import genreActionTypes from "./genre.types";
@@ -14,7 +17,8 @@ export function* fetchMovieByGenreAsync({ payload }) {
   try {
     const genreMovies = yield call(fetchRequest, payload);
     yield delay(1000);
-    yield put(fetchMovieByGenreSuccess(genreMovies));
+    console.log(genreMovies);
+    yield put(fetchMovieByGenreSuccess(genreMovies.results));
   } catch (error) {
     yield put(fetchMovieByGenreFailure(error));
   }
@@ -30,6 +34,18 @@ export function* fetchGenresAsync() {
   }
 }
 
+export function* LoadMoreMoviesAsync({ payload }) {
+  const { genre, page } = payload;
+  try {
+    const movies = yield call(fetchRequest, genre, page);
+    console.log("MOVIES", movies);
+
+    yield put(loadMoreMovieFinish(movies.results));
+  } catch (err) {
+    yield put(loadMoreMovieFailure(err));
+  }
+}
+
 export function* onfetchMovieByGenreStart() {
   yield takeLatest(
     genreActionTypes.FETCH_MOVIE_BY_GENRE_START,
@@ -41,6 +57,17 @@ export function* onfetchGenreStart() {
   yield takeLatest(genreActionTypes.FETCH_GENRES_START, fetchGenresAsync);
 }
 
+export function* onLoadmoreMovies() {
+  yield takeLatest(
+    genreActionTypes.LOAD_MORE_MOVIES_GENRE_START,
+    LoadMoreMoviesAsync
+  );
+}
+
 export function* genreSaga() {
-  yield all([call(onfetchMovieByGenreStart), call(onfetchGenreStart)]);
+  yield all([
+    call(onfetchMovieByGenreStart),
+    call(onfetchGenreStart),
+    call(onLoadmoreMovies),
+  ]);
 }

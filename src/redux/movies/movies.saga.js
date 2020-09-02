@@ -5,6 +5,7 @@ import {
   fetchMoviesFailure,
   loadMoreMovieFinish,
   loadMoreMovieFailure,
+  hasMoreMovies,
 } from "./movies.actions";
 
 import moviesActionTypes from "./movies.types";
@@ -27,7 +28,7 @@ export function* loadMoreMovies({ payload }) {
   const { query, page } = payload;
   try {
     const movies = yield call(fetchRequest, query, page);
-
+    if (page === movies.total_pages) yield put(hasMoreMovies(false));
     yield put(loadMoreMovieFinish(movies.results));
   } catch (err) {
     yield put(loadMoreMovieFailure(err));

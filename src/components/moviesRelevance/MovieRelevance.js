@@ -17,6 +17,7 @@ function MovieRelevance({
   loadMoreMoviesStart,
   isFetching,
   filterBy,
+  hasMore,
   errorMessage,
 }) {
   const queryDiscover = "/discover/movie?";
@@ -31,7 +32,6 @@ function MovieRelevance({
   const loadMore = () => {
     const { query } = filterBy;
     setPage((p) => p + 1);
-    console.log(page);
     loadMoreMoviesStart(`${queryDiscover}${query}`, page);
   };
 
@@ -41,9 +41,12 @@ function MovieRelevance({
   return (
     <>
       <MovieList movies={initMovies} />
-      <CustomButton onClick={loadMore} loadMorebutton>
-        {!isFetching ? "Load More Movies" : "Loading..."}
-      </CustomButton>
+
+      {hasMore && (
+        <CustomButton onClick={loadMore} loadMorebutton>
+          {!isFetching ? "Load More Movies" : "Loading..."}
+        </CustomButton>
+      )}
     </>
   );
 }
@@ -53,6 +56,7 @@ const mapStateToProps = (state) => ({
   isFetching: state.movies.isFetching,
   filterBy: state.filter.filterBy,
   errorMessage: state.movies.errorMessage,
+  hasMore: state.movies.hasMore,
 });
 
 const mapDispatchToProps = (dispatch) => ({

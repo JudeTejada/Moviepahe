@@ -5,6 +5,7 @@ const initialState = {
   isFetching: false,
   errorMessage: undefined,
   movieRelevance: "upcoming",
+  hasMore: true,
 };
 
 const moviesReducer = (state = initialState, action) => {
@@ -38,6 +39,12 @@ const moviesReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         errorMessage: action.payload,
+      };
+
+    case moviesActionTypes.HAS_MORE_MOVIES:
+      return {
+        ...state,
+        hasMore: false,
       };
 
     default:
