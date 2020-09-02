@@ -13,7 +13,6 @@ const moviesReducer = (state = initialState, action) => {
     case moviesActionTypes.LOAD_MORE_MOVIES_START:
       return {
         ...state,
-        initMovies: [],
         isFetching: true,
       };
 
@@ -25,10 +24,12 @@ const moviesReducer = (state = initialState, action) => {
       };
 
     case moviesActionTypes.LOAD_MORE_MOVIES_SUCCESS:
+      const { initMovies } = state;
+
       return {
         ...state,
         isFetching: false,
-        initMovies: [...state.initMovies, action.payload],
+        initMovies: [...initMovies, ...action.payload],
       };
 
     case moviesActionTypes.FETCH_MOVIES_FAILURE:

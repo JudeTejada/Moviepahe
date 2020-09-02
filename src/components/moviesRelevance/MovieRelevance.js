@@ -1,30 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-
-import { fetchMoviesStart } from "../../redux/movies/movies.actions";
+import * as lodash from "lodash";
+import {
+  fetchMoviesStart,
+  loadMoreMoviesStart,
+} from "../../redux/movies/movies.actions";
 
 import MovieList from "../movieList/movieList";
 import Loader from "../loader/Loader";
 import CustomButton from "../button/button";
+import { loadMoreMovies } from "../../redux/movies/movies.saga";
 
 function MovieRelevance({
   initMovies,
   fetchMoviesStart,
+  loadMoreMoviesStart,
   isFetching,
-  movieRelevance,
   filterBy,
+  errorMessage,
 }) {
   const queryDiscover = "/discover/movie?";
+  const [page, setPage] = useState(2);
+
   useEffect(() => {
     const { query } = filterBy;
     fetchMoviesStart(`${queryDiscover}${query}`);
+    setPage(2);
   }, [filterBy.query]);
 
-  const loadMore = () => {};
+  const loadMore = () => {
+    const { query } = filterBy;
+    setPage((p) => p + 1);
+    console.log(page);
+    loadMoreMoviesStart(`${queryDiscover}${query}`, page);
+  };
 
-  return !initMovies || isFetching ? (
-    <Loader />
-  ) : (
+  if (errorMessage) return <h1>Sorry Something Went wrong with the Page</h1>;
+  if (lodash.isEmpty(initMovies) && isFetching) return <Loader />;
+
+  return (
     <>
       <MovieList movies={initMovies} />
       <CustomButton onClick={loadMore} loadMorebutton>
@@ -37,12 +51,14 @@ function MovieRelevance({
 const mapStateToProps = (state) => ({
   initMovies: state.movies.initMovies,
   isFetching: state.movies.isFetching,
-  movieRelevance: state.movies.movieRelevance,
   filterBy: state.filter.filterBy,
+  errorMessage: state.movies.errorMessage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchMoviesStart: (option) => dispatch(fetchMoviesStart(option)),
+  fetchMoviesStart: (query) => dispatch(fetchMoviesStart(query)),
+  loadMoreMoviesStart: (query, page) =>
+    dispatch(loadMoreMoviesStart(query, page)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieRelevance);

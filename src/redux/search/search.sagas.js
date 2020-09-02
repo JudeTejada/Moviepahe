@@ -31,7 +31,7 @@ export function* loadMoreMovies({ payload }) {
     yield delay(1000);
     yield put(loadMoreMovieFinish(data.results));
   } catch (err) {
-    yield put(loadMoreMovieFailure(err));
+    loadMoreMovieFailure(err);
   }
 }
 

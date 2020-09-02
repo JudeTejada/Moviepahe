@@ -1,6 +1,11 @@
 import { takeLatest, call, put, all, delay, select } from "redux-saga/effects";
 
-import { fetchMoviesSuccess, fetchMoviesFailure } from "./movies.actions";
+import {
+  fetchMoviesSuccess,
+  fetchMoviesFailure,
+  loadMoreMovieFinish,
+  loadMoreMovieFailure,
+} from "./movies.actions";
 
 import moviesActionTypes from "./movies.types";
 
@@ -19,10 +24,14 @@ export function* fetchMoviesAsync({ payload }) {
 }
 
 export function* loadMoreMovies({ payload }) {
-  // const { type, page } = payload;
+  const { query, page } = payload;
   try {
-    // const state = yield select();
-  } catch (err) {}
+    const movies = yield call(fetchRequest, query, page);
+
+    yield put(loadMoreMovieFinish(movies.results));
+  } catch (err) {
+    yield put(loadMoreMovieFailure(err));
+  }
 }
 
 export function* fetchMoviesStart() {

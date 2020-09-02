@@ -38,7 +38,6 @@ const searchReducer = (state = INITIAL_STATE, action) => {
       };
 
     case searchActionTypes.QUERY_MOVIE_FAILURE:
-    case searchActionTypes.LOAD_MORE_MOVIES_FAILURE:
       return {
         ...state,
         isLoading: false,
