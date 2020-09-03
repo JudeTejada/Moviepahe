@@ -11,6 +11,7 @@ function SearchBar({ history }) {
     if (!query) return;
 
     history.push(`/search/${query}`);
+    setQuery("");
   };
 
   const inputChange = (e) => {
@@ -24,6 +25,7 @@ function SearchBar({ history }) {
         name="search a Movie"
         placeholder="Search from 600,000 movies"
         onChange={inputChange}
+        value={query}
       />
     </FormContainer>
   );
