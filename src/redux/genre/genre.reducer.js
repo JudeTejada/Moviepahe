@@ -38,6 +38,13 @@ const genreReducer = (state = initialState, action) => {
         isFetching: false,
         errorMessage: action.payload,
       };
+
+    case genreActionTypes.HAS_MORE_MOVIES:
+      return {
+        ...state,
+        isFetching: false,
+        hasMore: false,
+      };
     case genreActionTypes.FETCH_GENRES_SUCCESS:
       return {
         ...state,

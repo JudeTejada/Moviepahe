@@ -19,6 +19,7 @@ function GenrePage({
   fetchMovieByGenreStart,
   loadMoreMoviesStart,
   genreMovies,
+  hasMore,
   isFetching,
 }) {
   const query = `/discover/movie?&with_genres=${match.params.genreId}`;
@@ -43,9 +44,11 @@ function GenrePage({
         <p>{genreMovies.total_results} movies found</p>
         {genreMovies && <MovieList movies={genreMovies} />}
 
-        <CustomButton onClick={loadMore} loadMorebutton>
-          {!isFetching ? "Load More Movies" : "Loading..."}
-        </CustomButton>
+        {hasMore && (
+          <CustomButton onClick={loadMore} loadMorebutton>
+            {!isFetching ? "Load More Movies" : "Loading..."}
+          </CustomButton>
+        )}
       </>
     </div>
   );

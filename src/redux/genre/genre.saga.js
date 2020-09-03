@@ -38,8 +38,7 @@ export function* LoadMoreMoviesAsync({ payload }) {
   const { genre, page } = payload;
   try {
     const movies = yield call(fetchRequest, genre, page);
-    console.log("MOVIES", movies);
-
+    if (page === movies.total_pages) yield put(hasMoreMovies());
     yield put(loadMoreMovieFinish(movies.results));
   } catch (err) {
     yield put(loadMoreMovieFailure(err));

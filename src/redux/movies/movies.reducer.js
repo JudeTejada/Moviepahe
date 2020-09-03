@@ -1,4 +1,5 @@
 import moviesActionTypes from "./movies.types";
+import filterActionTypes from ".././filter/filter.types";
 
 const initialState = {
   initMovies: [],
@@ -11,12 +12,19 @@ const initialState = {
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
     case moviesActionTypes.FETCH_MOVIES_START:
-    case moviesActionTypes.LOAD_MORE_MOVIES_START:
+    case filterActionTypes.UPDATE_QUERY:
+      return {
+        ...state,
+        isFetching: true,
+        initMovies: [],
+      };
+
+    case moviesActionTypes.LOAD_MORE_MOVIES_START: {
       return {
         ...state,
         isFetching: true,
       };
-
+    }
     case moviesActionTypes.FETCH_MOVIES_SUCCESS:
       return {
         ...state,
