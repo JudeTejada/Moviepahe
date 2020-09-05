@@ -15,6 +15,13 @@ const discoverReducer = (state = initialState, action) => {
         ...state,
         isFetching: true,
         errorMessage: null,
+        discoverMovies: [],
+      };
+
+    case discoverActionTypes.LOAD_MORE_MOVIES_DISCOVER_START:
+      return {
+        ...state,
+        isFetching: true,
       };
 
     case discoverActionTypes.FETCH_DISCOVER_SUCCESS:

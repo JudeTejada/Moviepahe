@@ -77,6 +77,7 @@ export const fetchSingleRequest = async (category, id) => {
     url: `/${category}/${id}`,
     params: {
       api_key: tmdbKey,
+      append_to_response: "similar,videos,images",
     },
   });
 

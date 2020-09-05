@@ -17,7 +17,7 @@ export const MovieDetailTitle = styled.h4`
 
 export const MovieDetailSubtitle = styled.span`
   font-size: var(--body-text);
-  color: #b5b5b5;
+  color: var(--border-color);
 `;
 
 export const MovieSubTitleList = styled(MovieDetailSubtitle)`
@@ -25,6 +25,6 @@ export const MovieSubTitleList = styled(MovieDetailSubtitle)`
   margin-right: 0.75rem;
   margin-bottom: 1.2rem;
   display: inline-block;
-  border: 1px solid #b5b5b5;
+  border: 1px solid var(--border-color);
   border-radius: 1.5rem;
 `;

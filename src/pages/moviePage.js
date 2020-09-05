@@ -27,6 +27,8 @@ function MoviePage({
     });
   }, [match.params.id, fetchMovieStart]);
 
+  console.log(reviews);
+
   return !isFetching ? (
     <ContainerWrapper>
       {movie && <MovieOverview movie={movie} />}
@@ -36,7 +38,7 @@ function MoviePage({
           {similars.results.length !== 0 && <SimilarMovies movies={similars} />}
         </>
       )}
-      {reviews && !!reviews.totalpages && <Reviews reviews={reviews} />}
+      {reviews && <Reviews reviews={reviews} />}
     </ContainerWrapper>
   ) : (
     <Loader />

@@ -37,3 +37,8 @@ export const MovieSubtitle = styled.h5`
 export const MovieParagraph = styled.p`
   opacity: 0.8;
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;

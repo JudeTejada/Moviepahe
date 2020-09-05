@@ -9,7 +9,8 @@ export const GlobalStyle = createGlobalStyle`
         --secondary-color: ##1B1B1B;
         --tertiary-color-dark: #262626;
         --tertiary-color-light: #2F2F2F;
-
+        
+        --border-color:#9c9c9c;
         --card-date: #bdbdbd;
 
 

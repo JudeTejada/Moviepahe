@@ -44,6 +44,18 @@ const hideButton = css`
   padding: 0.8em;
   color: #fff;
 `;
+
+const outlineButton = css`
+  border: 1px solid #fff;
+  color: #fff;
+  background: none;
+  margin-left: 2em;
+  opacity: 0.8;
+  transition: all 0.3s;
+  &:hover {
+    opacity: 1;
+  }
+`;
 const getButtonStyle = (props) => {
   if (props.movieButtonStyle) {
     return movieButtonStyle;
@@ -54,6 +66,9 @@ const getButtonStyle = (props) => {
 
   if (props.hideButton) {
     return hideButton;
+  }
+  if (props.outlineButton) {
+    return outlineButton;
   }
   return buttonStyles;
 };

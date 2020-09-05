@@ -11,6 +11,12 @@ const initialState = {
 const genreReducer = (state = initialState, action) => {
   switch (action.type) {
     case genreActionTypes.FETCH_MOVIE_BY_GENRE_START:
+      return {
+        ...state,
+        isFetching: true,
+        genreMovies: [],
+      };
+
     case genreActionTypes.LOAD_MORE_MOVIES_GENRE_START:
       return {
         ...state,
