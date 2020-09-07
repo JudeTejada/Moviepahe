@@ -10,7 +10,6 @@ const initialState = {
 const discoverReducer = (state = initialState, action) => {
   switch (action.type) {
     case discoverActionTypes.FETCH_DISCOVER_START:
-    case discoverActionTypes.LOAD_MORE_MOVIES_DISCOVER_START:
       return {
         ...state,
         isFetching: true,

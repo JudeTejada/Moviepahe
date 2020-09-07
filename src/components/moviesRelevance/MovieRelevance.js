@@ -9,7 +9,6 @@ import {
 import MovieList from "../movieList/movieList";
 import Loader from "../loader/Loader";
 import CustomButton from "../button/button";
-import { loadMoreMovies } from "../../redux/movies/movies.saga";
 
 function MovieRelevance({
   initMovies,

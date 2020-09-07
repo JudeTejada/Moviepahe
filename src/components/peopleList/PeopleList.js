@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+
 import PersonCard from "../personCard/PersonCard";
+import Custombutton from "../button/button";
 
 import { PeopleWrapper } from "./PeopleList.styled";
 function PeopleList({ people, history, match }) {
@@ -14,7 +16,9 @@ function PeopleList({ people, history, match }) {
         <PersonCard {...person} key={person.id} />
       ))}
 
-      <button onClick={viewAllCasts}>View All Casts</button>
+      <Custombutton movieButtonStyle onClick={viewAllCasts}>
+        View All Casts
+      </Custombutton>
     </PeopleWrapper>
   );
 }

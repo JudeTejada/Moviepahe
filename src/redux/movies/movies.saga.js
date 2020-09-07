@@ -1,4 +1,4 @@
-import { takeLatest, call, put, all, delay, select } from "redux-saga/effects";
+import { takeLatest, call, put, all, delay } from "redux-saga/effects";
 
 import {
   fetchMoviesSuccess,

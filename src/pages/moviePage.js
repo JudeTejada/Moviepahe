@@ -27,8 +27,6 @@ function MoviePage({
     });
   }, [match.params.id, fetchMovieStart]);
 
-  console.log(reviews);
-
   return !isFetching ? (
     <ContainerWrapper>
       {movie && <MovieOverview movie={movie} />}

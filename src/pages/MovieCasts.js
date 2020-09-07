@@ -1,18 +1,26 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
 
-function MovieCasts({ casts }) {
-  console.log(casts);
+import { connect } from "react-redux";
+import { isEmpty } from "../util/util";
+
+import PeopleCastList from "../components/peopleCastList/PeopleCastList";
+
+function MovieCasts({ casts, history }) {
+  useEffect(() => {
+    if (isEmpty(casts)) {
+      history.goBack();
+    }
+  }, []);
 
   return (
     <div>
-      <h2>All Cast</h2>
+      <PeopleCastList casts={casts} />
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  casts: state,
+  casts: state.movie.credits,
 });
 
 export default connect(mapStateToProps)(MovieCasts);
