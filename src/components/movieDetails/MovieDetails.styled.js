@@ -3,10 +3,23 @@ import styled from "styled-components";
 export const MovieDetailsWrapper = styled.div`
   padding: 2em;
   padding-left: 7em;
+
+  @media ${(props) => props.theme.mediaQueries.tablet} {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
 `;
 
 export const MovieDetailList = styled.div`
   margin-bottom: 5.5em;
+
+  @media ${(props) => props.theme.mediaQueries.tablet} {
+    margin: 2em;
+    display: inline-block;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 `;
 
 export const MovieDetailTitle = styled.h4`

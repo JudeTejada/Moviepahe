@@ -12,15 +12,23 @@ export const MovieTitle = styled.h2`
 
 export const MovieDetailsContainer = styled.div`
   display: flex;
+
+  @media ${(props) => props.theme.mediaQueries.mobileLarge} {
+    display: block;
+  }
 `;
 
 export const MovieImageWrapper = styled.div`
   flex-basis: 20%;
+  width: 300px;
 `;
 
 export const MovieDetails = styled.div`
   padding: 0 4.8rem;
   flex: 1;
+  @media ${(props) => props.theme.mediaQueries.mobileLarge} {
+    padding: 0;
+  }
 `;
 export const MovieImage = styled.img`
   width: 100%;

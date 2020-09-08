@@ -20,22 +20,28 @@ export default function PersonCasting({ casting, actor }) {
         <MovieDetailsWrapper>
           <MovieDetailList>
             <MovieDetailTitle>Birthday</MovieDetailTitle>
-            <MovieDetailSubtitle>{birthday}</MovieDetailSubtitle>
+            <MovieDetailSubtitle>
+              {birthday ? birthday : "N/A"}
+            </MovieDetailSubtitle>
           </MovieDetailList>
 
           <MovieDetailList>
             <MovieDetailTitle>Gender</MovieDetailTitle>
-            <MovieDetailSubtitle>{gender}</MovieDetailSubtitle>
+            <MovieDetailSubtitle>{gender ? gender : "N/A"}</MovieDetailSubtitle>
           </MovieDetailList>
 
           <MovieDetailList>
             <MovieDetailTitle>Known For</MovieDetailTitle>
-            <MovieDetailSubtitle>{known_for_department}</MovieDetailSubtitle>
+            <MovieDetailSubtitle>
+              {known_for_department ? known_for_department : "N/A"}
+            </MovieDetailSubtitle>
           </MovieDetailList>
 
           <MovieDetailList>
             <MovieDetailTitle>Place of birth</MovieDetailTitle>
-            <MovieDetailSubtitle>{place_of_birth}</MovieDetailSubtitle>
+            <MovieDetailSubtitle>
+              {place_of_birth ? place_of_birth : "N/A"}
+            </MovieDetailSubtitle>
           </MovieDetailList>
         </MovieDetailsWrapper>
       </PersonWrapper>

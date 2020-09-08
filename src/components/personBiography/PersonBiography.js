@@ -11,6 +11,8 @@ import {
   MovieParagraph,
 } from "../movieOverview/MovieOverview.styled";
 
+import ImgPlaceholder from "../../assets/placeholder.jpg";
+
 export default function PersonBiography({ actor }) {
   const tmdbPosterPath = "https://image.tmdb.org/t/p/w300_and_h450_face/";
   const { biography, name, profile_path } = actor;
@@ -19,7 +21,12 @@ export default function PersonBiography({ actor }) {
       <MovieTitle>{name}</MovieTitle>
       <MovieDetailsContainer>
         <MovieImageWrapper>
-          <MovieImage src={`${tmdbPosterPath + profile_path}`} al t={name} />
+          <MovieImage
+            src={
+              profile_path ? `${tmdbPosterPath + profile_path}` : ImgPlaceholder
+            }
+            alt={name}
+          />
         </MovieImageWrapper>
 
         <MovieDetails>

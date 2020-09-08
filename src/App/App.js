@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { GlobalStyle } from "../util/global.styles";
 
@@ -14,11 +14,27 @@ import GenrePage from "../pages/genrePage";
 import DiscoverPage from "../pages/discoverPage";
 import MovieCasts from "../pages/MovieCasts";
 
+import Theme from "../util/theme";
+
 import { AppContainer } from "./App.styled";
 
 function App() {
+  const [isMobile, setIsMobile] = useState(null);
+
+  const changeMobile = () => {
+    window.matchMedia("(max-width: 80em)").matches
+      ? setIsMobile(true)
+      : setIsMobile(false);
+  };
+
+  useEffect(() => {
+    changeMobile();
+    window.addEventListener("resize", changeMobile);
+    return () => window.removeEventListener("resize", changeMobile);
+  }, []);
+
   return (
-    <div>
+    <Theme>
       <GlobalStyle />
       <Header />
 
@@ -43,7 +59,7 @@ function App() {
         </Switch>
       </AppContainer>
       <Footer />
-    </div>
+    </Theme>
   );
 }
 

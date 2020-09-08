@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 export const NavContainer = styled.nav`
   margin-top: 6.5em;
+
+  @media ${(props) => props.theme.mediaQueries.tablet} {
+    display: none;
+  }
 `;
 
 export const NavTitle = styled.h3`
