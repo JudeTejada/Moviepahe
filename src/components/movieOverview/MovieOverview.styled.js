@@ -28,6 +28,7 @@ export const MovieDetails = styled.div`
   flex: 1;
   @media ${(props) => props.theme.mediaQueries.mobileLarge} {
     padding: 0;
+    margin-top: 2em;
   }
 `;
 export const MovieImage = styled.img`
@@ -49,4 +50,8 @@ export const MovieParagraph = styled.p`
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
+
+  @media ${(props) => props.theme.mediaQueries.mobileLarge} {
+    display: block;
+  }
 `;

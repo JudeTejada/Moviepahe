@@ -25,6 +25,9 @@ const movieButtonStyle = css`
     background-color: #fff;
     color: black;
   }
+  @media ${(props) => props.theme.mediaQueries.mobileLarge} {
+    width: 100%;
+  }
 `;
 
 const loadMorebutton = css`
@@ -56,6 +59,7 @@ const outlineButton = css`
     opacity: 1;
   }
 `;
+
 const getButtonStyle = (props) => {
   if (props.movieButtonStyle) {
     return movieButtonStyle;
@@ -70,6 +74,7 @@ const getButtonStyle = (props) => {
   if (props.outlineButton) {
     return outlineButton;
   }
+
   return buttonStyles;
 };
 

@@ -14,10 +14,10 @@ export const MovieDetailList = styled.div`
   margin-bottom: 5.5em;
 
   @media ${(props) => props.theme.mediaQueries.tablet} {
-    margin: 2em;
+    margin-right: 3em;
     display: inline-block;
     &:first-child {
-      margin-left: 0;
+      display: block;
     }
   }
 `;

@@ -11,15 +11,16 @@ function PeopleList({ people, history, match }) {
   };
 
   return (
-    <PeopleWrapper>
-      {people.map((person) => (
-        <PersonCard {...person} key={person.id} />
-      ))}
-
-      <Custombutton movieButtonStyle onClick={viewAllCasts}>
+    <div>
+      <PeopleWrapper>
+        {people.map((person) => (
+          <PersonCard {...person} key={person.id} />
+        ))}
+      </PeopleWrapper>
+      <Custombutton loadMorebutton onClick={viewAllCasts}>
         View All Casts
       </Custombutton>
-    </PeopleWrapper>
+    </div>
   );
 }
 

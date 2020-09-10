@@ -9,4 +9,12 @@ export const AppContainer = styled.main`
     grid-template-columns: 1fr;
     padding: 4em;
   }
+
+  @media ${(props) => props.theme.mediaQueries.mobileLarge} {
+    padding: 3em;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.mobile} {
+    padding: 1.5em;
+  }
 `;

@@ -33,7 +33,9 @@ export const GlobalStyle = createGlobalStyle`
 	    font-family: 'Work Sans', sans-serif;
         padding:2em;
     
-
+        @media ${(props) => props.theme.mediaQueries.tablet} {
+    padding: 0.2em;
+  }
 	}
 
 	a {
@@ -72,4 +74,16 @@ export const HeadingOne = styled.h1`
   margin-top: 0.5em;
   margin-bottom: 0.3em;
   font-weight: 700;
+
+  @media ${(props) => props.theme.mediaQueries.tablet} {
+    font-size: calc(var(--heading-1-size) - 1.2rem);
+  }
+
+  @media ${(props) => props.theme.mediaQueries.mobileLarge} {
+    font-size: calc(var(--heading-1-size) - 2.2rem);
+  }
+
+  @media ${(props) => props.theme.mediaQueries.mobile} {
+    font-size: calc(var(--heading-1-size) - 4rem);
+  }
 `;

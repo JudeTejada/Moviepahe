@@ -8,7 +8,7 @@ import { HeadingOne } from "../util/global.styles";
 function MainPage() {
   return (
     <div>
-      <HeadingOne>A library of Movies</HeadingOne>
+      <HeadingOne>Discover Movies</HeadingOne>
       <OptionCategory />
       <MovieRelevance />
     </div>
