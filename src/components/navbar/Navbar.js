@@ -13,6 +13,9 @@ function Navbar({ fetchGenresStart, genres }) {
   useEffect(() => {
     fetchGenresStart();
   }, [fetchGenresStart]);
+
+  if (!genres) return <div></div>;
+
   return (
     <>
       {genres && (

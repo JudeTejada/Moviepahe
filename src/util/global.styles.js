@@ -57,6 +57,10 @@ export const GlobalStyle = createGlobalStyle`
 
 export const ContainerWrapper = styled.div`
   padding: 2em;
+
+  @media ${(props) => props.theme.mediaQueries.mobile} {
+    padding: 1em;
+  }
 `;
 
 export const SectionContainer = styled.div`

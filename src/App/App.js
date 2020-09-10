@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+
 import { GlobalStyle } from "../util/global.styles";
 
 import Header from "../components/header/Header";
 import Footer from "../components/footer/footer";
 import Navbar from "../components/navbar/Navbar";
+import Loader from "../components/loader/Loader";
 
 import MainPage from "../pages/mainPage";
 import SearchPage from "../pages/searchPage";
@@ -16,9 +19,11 @@ import MovieCasts from "../pages/MovieCasts";
 
 import Theme from "../util/theme";
 
-import { AppContainer } from "./App.styled";
+import { initMainApp } from "../redux/init/init.actions";
 
-function App() {
+import { AppContainer, Wrapper } from "./App.styled";
+
+function App({ initMainApp, loading }) {
   const [isMobile, setIsMobile] = useState(null);
 
   const changeMobile = () => {
@@ -33,34 +38,54 @@ function App() {
     return () => window.removeEventListener("resize", changeMobile);
   }, []);
 
+  useEffect(() => {
+    initMainApp();
+  });
+
   return (
     <Theme>
       <GlobalStyle />
-      <Header />
 
-      <AppContainer>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route exact path="/search/:movie" component={SearchPage} />
-          <Route exact path="/movie/:id" component={MoviePage} />
-          <Route exact path="/movie/:id/casts" component={MovieCasts} />
-          <Route exact path="/person/:personId" component={PersonPage} />
-          <Route
-            exact
-            path="/discover/:discoverType/"
-            component={DiscoverPage}
-          />
-          <Route
-            exact
-            path="/genre/:movieGenre/:genreId"
-            component={GenrePage}
-          />
-        </Switch>
-      </AppContainer>
-      <Footer />
+      {loading ? (
+        <Wrapper>
+          <Loader />
+        </Wrapper>
+      ) : (
+        <>
+          <Header />
+
+          <AppContainer>
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={MainPage} />
+              <Route exact path="/search/:movie" component={SearchPage} />
+              <Route exact path="/movie/:id" component={MoviePage} />
+              <Route exact path="/movie/:id/casts" component={MovieCasts} />
+              <Route exact path="/person/:personId" component={PersonPage} />
+              <Route
+                exact
+                path="/discover/:discoverType/"
+                component={DiscoverPage}
+              />
+              <Route
+                exact
+                path="/genre/:movieGenre/:genreId"
+                component={GenrePage}
+              />
+            </Switch>
+          </AppContainer>
+          <Footer />
+        </>
+      )}
     </Theme>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  loading: state.init.loading,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  initMainApp: () => dispatch(initMainApp()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App);

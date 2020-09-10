@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PersonCardWrapper = styled.div`
   display: inline-block;
-  width: 100%;
+  width: 180px;
 
   @media ${(props) => props.theme.mediaQueries.tablet} {
     padding: 1em;
@@ -10,9 +10,14 @@ export const PersonCardWrapper = styled.div`
 
   @media ${(props) => props.theme.mediaQueries.mobile} {
     padding: 0;
+    width: 150px;
   }
 `;
 
+export const PersonImageWrapper = styled.div`
+  width: 100%;
+  height: 270px;
+`;
 export const PersonImage = styled.img`
   border-radius: 1.6rem;
   width: 100%;

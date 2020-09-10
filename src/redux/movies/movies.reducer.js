@@ -7,6 +7,7 @@ const initialState = {
   errorMessage: undefined,
   movieRelevance: "upcoming",
   hasMore: true,
+  initMain: false,
 };
 
 const moviesReducer = (state = initialState, action) => {

@@ -24,7 +24,7 @@ const movieReducer = (state = initialState, action) => {
         movie: action.payload.movieDetails,
         credits: action.payload.credits,
         reviews: action.payload.reviews,
-        similars: action.payload.similar
+        similars: action.payload.similar,
       };
 
     case movieActionTypes.FETCH_MOVIE_FAILURE:
@@ -34,6 +34,11 @@ const movieReducer = (state = initialState, action) => {
         errorMessage: action.payload,
       };
 
+    case movieActionTypes.INIT_MAIN:
+      return {
+        ...state,
+        initMain: true,
+      };
     default:
       return state;
   }

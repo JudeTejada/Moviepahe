@@ -18,3 +18,11 @@ export const AppContainer = styled.main`
     padding: 1.5em;
   }
 `;
+
+export const Wrapper = styled.div`
+  background: black;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+`;

@@ -6,6 +6,7 @@ import {
   PersonImage,
   PersonName,
   PersonCharacter,
+  PersonImageWrapper,
 } from "./PersonCard.styled";
 
 import ImgPlaceholder from "../../assets/placeholder.jpg";
@@ -15,14 +16,14 @@ export default function PersonCard({ name, id, profile_path, character }) {
   return (
     <PersonCardWrapper>
       <Link to={`/person/${id}`}>
-        <div className="cardImage">
+        <PersonImageWrapper className="cardImage">
           <PersonImage
             src={
               profile_path ? `${tmdbPosterPath + profile_path}` : ImgPlaceholder
             }
             alt={name}
           />
-        </div>
+        </PersonImageWrapper>
         <div className="card_details">
           <PersonName>{name}</PersonName>
           <PersonCharacter>{character}</PersonCharacter>
