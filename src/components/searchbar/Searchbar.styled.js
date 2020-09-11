@@ -4,6 +4,11 @@ export const FormContainer = styled.form`
   width: 70%;
 
   margin-left: 8em;
+
+  @media ${(props) => props.theme.mediaQueries.tablet} {
+    width: 50%;
+    margin: 0;
+  }
 `;
 
 export const SearchInput = styled.input`
