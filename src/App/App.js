@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -24,20 +24,6 @@ import { initMainApp } from "../redux/init/init.actions";
 import { AppContainer, Wrapper } from "./App.styled";
 
 function App({ initMainApp, loading }) {
-  const [isMobile, setIsMobile] = useState(null);
-
-  const changeMobile = () => {
-    window.matchMedia("(max-width: 80em)").matches
-      ? setIsMobile(true)
-      : setIsMobile(false);
-  };
-
-  useEffect(() => {
-    changeMobile();
-    window.addEventListener("resize", changeMobile);
-    return () => window.removeEventListener("resize", changeMobile);
-  }, []);
-
   useEffect(() => {
     initMainApp();
   });
