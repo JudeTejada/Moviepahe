@@ -16,6 +16,7 @@ import PersonPage from "../pages/personPage";
 import GenrePage from "../pages/genrePage";
 import DiscoverPage from "../pages/discoverPage";
 import MovieCasts from "../pages/MovieCasts";
+import AllGenrePage from "../pages/allGenrePage";
 
 import Theme from "../util/theme";
 
@@ -58,6 +59,7 @@ function App({ initMainApp, loading }) {
                 path="/genre/:movieGenre/:genreId"
                 component={GenrePage}
               />
+              <Route exact path="/genres" component={AllGenrePage} />
             </Switch>
           </AppContainer>
           <Footer />

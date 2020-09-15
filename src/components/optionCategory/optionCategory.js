@@ -8,6 +8,8 @@ import {
   setGenreFilter,
 } from "../../redux/filter/filter.actions";
 
+import { OptionContainer } from "./optionCategory.styled";
+
 function OptionCategory({
   setYearFilter,
   setSortFilter,
@@ -40,7 +42,7 @@ function OptionCategory({
 
   const { year, sort, genre } = filterBy;
   return (
-    <>
+    <OptionContainer>
       <label htmlFor="year">Year:</label>
 
       <select id="year" onChange={onYearFilterChange} value={year}>
@@ -93,7 +95,7 @@ function OptionCategory({
       </select>
       <br />
       <br />
-    </>
+    </OptionContainer>
   );
 }
 

@@ -41,7 +41,6 @@ function GenrePage({
     <div>
       <>
         <HeadingOne>{match.params.movieGenre}</HeadingOne>
-        <p>{genreMovies.total_results} movies found</p>
         {genreMovies && <MovieList movies={genreMovies} />}
 
         {hasMore && (

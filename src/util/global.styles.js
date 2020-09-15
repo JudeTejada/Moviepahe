@@ -80,6 +80,7 @@ export const HeadingOne = styled.h1`
   font-weight: 700;
 
   @media ${(props) => props.theme.mediaQueries.tablet} {
+    text-align: center;
     font-size: calc(var(--heading-1-size) - 1.2rem);
   }
 

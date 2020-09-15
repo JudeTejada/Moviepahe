@@ -42,9 +42,14 @@ export const MobileNavTitle = styled(NavTitle)`
   color: #000;
 `;
 
-export const CloseButton = styled.button`
+export const CloseButton = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  margin: 1.2em;
+  margin: 1.4em;
+
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19'%3E%3Cpath d='M2 2l15 15m0-15L2 17' fill='none' stroke='%231D1D1D' stroke-linecap='round' stroke-width='3'/%3E%3C/svg%3E")
+    no-repeat 50% / contain;
+  width: 24px;
+  height: 24px;
 `;
