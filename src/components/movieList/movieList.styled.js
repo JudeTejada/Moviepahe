@@ -10,4 +10,8 @@ export const ListContainer = styled.div`
   @media ${(props) => props.theme.mediaQueries.tablet} {
     padding: 6em;
   }
+
+  @media ${(props) => props.theme.mediaQueries.mobile} {
+    padding: 0;
+  }
 `;

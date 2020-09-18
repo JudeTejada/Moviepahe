@@ -25,7 +25,7 @@ function DiscoverPage({
 
   useEffect(() => {
     fetchDiscoverStart(route);
-  }, [match.params.discoverType, fetchDiscoverStart]);
+  }, [match.params.discoverType, fetchDiscoverStart, route]);
 
   const loadMore = () => {
     console.log("click");

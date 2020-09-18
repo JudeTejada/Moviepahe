@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import { FormContainer, SearchInput } from "./Searchbar.styled";
 
 function SearchBar({ history }) {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
 
   const searchMovie = (e) => {
     e.preventDefault();

@@ -12,10 +12,9 @@ import { GenreUL } from "../components/genreItem/GenreItem.styled";
 function AllGenrePage({ genres, fetchGenresStart }) {
   useEffect(() => {
     if (lodash.isEmpty(genres)) {
-      console.log("FETCHING");
       fetchGenresStart();
     }
-  }, []);
+  }, [fetchGenresStart, genres]);
 
   if (lodash.isEmpty(genres)) return <Loader />;
 

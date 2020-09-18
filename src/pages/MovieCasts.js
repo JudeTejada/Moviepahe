@@ -10,7 +10,7 @@ function MovieCasts({ casts, history }) {
     if (isEmpty(casts)) {
       history.goBack();
     }
-  }, []);
+  }, [casts, history]);
 
   return (
     <div>

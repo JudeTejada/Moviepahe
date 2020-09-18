@@ -64,7 +64,7 @@ function Navbar({ fetchGenresStart, genres }) {
                     to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`}
                     key={id}
                     activeClassName="active"
-                    togglehide={toggle}
+                    togglehide={toggle ? " true" : "false"}
                   >
                     <span role="img" aria-label="navbar icon">
                       ▶️

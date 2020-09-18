@@ -44,6 +44,7 @@ export const NavList = styled(NavLink)`
   padding: 0.6em;
   transition: all 0.3s;
   border-radius: 2em;
+  align-items: center;
 
   &.active {
     background: #fff;

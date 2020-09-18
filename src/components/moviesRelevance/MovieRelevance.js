@@ -26,7 +26,7 @@ function MovieRelevance({
     const { query } = filterBy;
     fetchMoviesStart(`${queryDiscover}${query}`);
     setPage(2);
-  }, [filterBy.query]);
+  }, [filterBy.query, fetchMoviesStart, filterBy]);
 
   const loadMore = () => {
     const { query } = filterBy;

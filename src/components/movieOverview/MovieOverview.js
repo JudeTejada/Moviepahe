@@ -21,7 +21,7 @@ import { ReactComponent as LinkIcon } from "../../assets/LinkIcon.svg";
 import ImgPlaceholder from "../../assets/placeholder.jpg";
 
 export default function MovieOverview({ movie }) {
-  const { backdrop_path, overview, original_title } = movie;
+  const { backdrop_path, overview, original_title, homepage } = movie;
   const tmdbBackdropPath = "https://image.tmdb.org/t/p/original";
 
   const [modalOpened, setModalOpened] = useState(false);
@@ -69,7 +69,9 @@ export default function MovieOverview({ movie }) {
             <MovieParagraph>{overview}</MovieParagraph>
             <ButtonWrapper>
               <CustomButton movieButtonStyle>
-                <LinkIcon /> <span> Visit Site</span>
+                <a href={homepage} target="_blank" rel="noopener noreferrer">
+                  <LinkIcon /> <span> Visit Site</span>
+                </a>
               </CustomButton>
 
               {renderTrailer(movie.videos.results, modalOpened, setModalOpened)}

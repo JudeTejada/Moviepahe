@@ -62,7 +62,6 @@ function App({ initMainApp, loading }) {
               <Route exact path="/genres" component={AllGenrePage} />
             </Switch>
           </AppContainer>
-          <Footer />
         </>
       )}
     </Theme>

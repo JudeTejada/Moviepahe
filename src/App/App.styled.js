@@ -11,7 +11,7 @@ export const AppContainer = styled.main`
   }
 
   @media ${(props) => props.theme.mediaQueries.mobileLarge} {
-    padding: 3em;
+    padding: 0;
   }
 
   @media ${(props) => props.theme.mediaQueries.mobile} {
