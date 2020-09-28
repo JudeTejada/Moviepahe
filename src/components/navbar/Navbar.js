@@ -15,10 +15,11 @@ function Navbar({ fetchGenresStart, genres }) {
     fetchGenresStart();
   }, [fetchGenresStart]);
 
+  if (!genres) return <div></div>;
   return (
     <>
       {genres && (
-        <NavContainer genres>
+        <NavContainer>
           <NavTitle>Discover</NavTitle>
           <NavUl>
             <NavList
