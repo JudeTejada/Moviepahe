@@ -26,6 +26,10 @@ export const GlobalStyle = createGlobalStyle`
     }
     html{
         font-size:62.5%;
+        @media ${(props) => props.theme.mediaQueries.mobile} {
+          font-size:50%;
+  }
+
     }
 	body {
         background:var(--body-background);

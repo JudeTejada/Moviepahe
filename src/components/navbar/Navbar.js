@@ -10,16 +10,15 @@ import CustomButton from "../button/button";
 
 function Navbar({ fetchGenresStart, genres }) {
   const [toggle, setToggle] = useState(true);
+
   useEffect(() => {
     fetchGenresStart();
   }, [fetchGenresStart]);
 
-  if (!genres) return <div></div>;
-
   return (
     <>
       {genres && (
-        <NavContainer>
+        <NavContainer genres>
           <NavTitle>Discover</NavTitle>
           <NavUl>
             <NavList
@@ -64,7 +63,7 @@ function Navbar({ fetchGenresStart, genres }) {
                     to={`${process.env.PUBLIC_URL}/genre/${name}/${id}`}
                     key={id}
                     activeClassName="active"
-                    togglehide={toggle ? " true" : "false"}
+                    toggle={toggle ? 1 : 0}
                   >
                     <span role="img" aria-label="navbar icon">
                       ▶️

@@ -8,9 +8,7 @@ const buttonStyles = css`
 
 const movieButtonStyle = css`
   color: #fff;
-
   box-shadow: 0 10px 20px black;
-
   transition: all 0.3s;
 
   & span {
@@ -22,11 +20,15 @@ const movieButtonStyle = css`
   }
 
   &:hover {
-    background-color: #fff;
+    opacity: 0.8;
     color: black;
   }
   @media ${(props) => props.theme.mediaQueries.mobileLarge} {
     width: 100%;
+  }
+  & a {
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -57,6 +59,11 @@ const outlineButton = css`
   transition: all 0.3s;
   &:hover {
     opacity: 1;
+  }
+
+  @media ${(props) => props.theme.mediaQueries.mobile} {
+    margin-left: 0;
+    width: 100%;
   }
 `;
 

@@ -30,6 +30,7 @@ export const PersonName = styled.h4`
 
   @media ${(props) => props.theme.mediaQueries.mobile} {
     font-size: calc(var(--heading-6-size) - 0.3em);
+    margin-top: 0;
   }
 `;
 

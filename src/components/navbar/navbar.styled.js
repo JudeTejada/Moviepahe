@@ -54,7 +54,7 @@ export const NavList = styled(NavLink)`
     opacity: 0.8;
   }
 
-  ${(props) => props.togglehide && "display:none"}
+  ${(props) => props.toggle && "display:none"}
 `;
 
 export const NavLi = styled.li`

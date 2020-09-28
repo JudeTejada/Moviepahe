@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { GlobalStyle } from "../util/global.styles";
 
 import Header from "../components/header/Header";
-import Footer from "../components/footer/footer";
 import Navbar from "../components/navbar/Navbar";
 import Loader from "../components/loader/Loader";
 
