@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as lodash from "lodash";
+import { Helmet } from "react-helmet";
 import {
   fetchDiscoverStart,
   loadMoreMoviesStart,
@@ -37,6 +38,9 @@ function DiscoverPage({
   if (lodash.isEmpty(discoverMovies) && isFetching) return <Loader />;
   return (
     <div>
+      <Helmet>
+        <title>{`${match.params.discoverType} Movies`}</title>
+      </Helmet>
       <HeadingOne>{match.params.discoverType} Movies</HeadingOne>
       <MovieList movies={discoverMovies} />
       {hasMore && (

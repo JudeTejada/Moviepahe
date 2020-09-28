@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as lodash from "lodash";
+import { Helmet } from "react-helmet";
+
 import {
   queryMovieStart,
   loadMoreMoviesStart,
@@ -37,6 +39,10 @@ function SearchPage({
 
   return (
     <div>
+      <Helmet>
+        <title>{`${match.params.movie} - search results`}</title>
+      </Helmet>
+
       <HeadingOne>Search Result for {match.params.movie} </HeadingOne>
       <MovieList movies={moviesFound} />
 

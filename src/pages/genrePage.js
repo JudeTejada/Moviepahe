@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { Helmet } from "react-helmet";
 import * as lodash from "lodash";
 
 import {
@@ -40,6 +41,9 @@ function GenrePage({
   return (
     <div>
       <>
+        <Helmet>
+          <title>Genre Page</title>
+        </Helmet>
         <HeadingOne>{match.params.movieGenre}</HeadingOne>
         {genreMovies && <MovieList movies={genreMovies} />}
 
