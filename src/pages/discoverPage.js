@@ -7,6 +7,8 @@ import {
   loadMoreMoviesStart,
 } from "../redux/discover/discover.actions";
 
+import { capitalizeFirstLetter } from "../util/util";
+
 import Loader from "../components/loader/Loader";
 import MovieList from "../components/movieList/movieList";
 import CustomButton from "../components/button/button";
@@ -24,6 +26,10 @@ function DiscoverPage({
   const route = `/movie/${match.params.discoverType}`;
   const [page, setPage] = useState(1);
 
+  const query = capitalizeFirstLetter(
+    match.params.discoverType.replace(/_/g, " ")
+  );
+
   useEffect(() => {
     fetchDiscoverStart(route);
   }, [match.params.discoverType, fetchDiscoverStart, route]);
@@ -39,9 +45,9 @@ function DiscoverPage({
   return (
     <div>
       <Helmet>
-        <title>{`${match.params.discoverType} Movies`}</title>
+        <title>{`${query} Movies`}</title>
       </Helmet>
-      <HeadingOne>{match.params.discoverType} Movies</HeadingOne>
+      <HeadingOne>{query} Movies</HeadingOne>
       <MovieList movies={discoverMovies} />
       {hasMore && (
         <CustomButton onClick={loadMore} loadMorebutton>
@@ -51,6 +57,7 @@ function DiscoverPage({
     </div>
   );
 }
+
 const mapStateToProps = (state) => ({
   isFetching: state.discover.isFetching,
   discoverMovies: state.discover.discoverMovies,
