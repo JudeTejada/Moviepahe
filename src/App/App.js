@@ -7,6 +7,7 @@ import { GlobalStyle } from "../util/global.styles";
 import Header from "../components/header/Header";
 import Navbar from "../components/navbar/Navbar";
 import Loader from "../components/loader/Loader";
+import ErrorBoundary from "../components/errorBoundary/errorBoundary";
 
 import MainPage from "../pages/mainPage";
 import SearchPage from "../pages/searchPage";
@@ -16,6 +17,7 @@ import GenrePage from "../pages/genrePage";
 import DiscoverPage from "../pages/discoverPage";
 import MovieCasts from "../pages/MovieCasts";
 import AllGenrePage from "../pages/allGenrePage";
+import NotFoundPage from "../pages/notFoundPage";
 
 import Theme from "../util/theme";
 
@@ -43,22 +45,25 @@ function App({ initMainApp, loading }) {
           <AppContainer>
             <Navbar />
             <Switch>
-              <Route exact path="/" component={MainPage} />
-              <Route exact path="/search/:movie" component={SearchPage} />
-              <Route exact path="/movie/:id" component={MoviePage} />
-              <Route exact path="/movie/:id/casts" component={MovieCasts} />
-              <Route exact path="/person/:personId" component={PersonPage} />
-              <Route
-                exact
-                path="/discover/:discoverType/"
-                component={DiscoverPage}
-              />
-              <Route
-                exact
-                path="/genre/:movieGenre/:genreId"
-                component={GenrePage}
-              />
-              <Route exact path="/genres" component={AllGenrePage} />
+              <ErrorBoundary>
+                <Route exact path="/" component={MainPage} />
+                <Route exact path="/search/:movie" component={SearchPage} />
+                <Route exact path="/movie/:id" component={MoviePage} />
+                <Route exact path="/movie/:id/casts" component={MovieCasts} />
+                <Route exact path="/person/:personId" component={PersonPage} />
+                <Route
+                  exact
+                  path="/discover/:discoverType/"
+                  component={DiscoverPage}
+                />
+                <Route
+                  exact
+                  path="/genre/:movieGenre/:genreId"
+                  component={GenrePage}
+                />
+                <Route exact path="/genres" component={AllGenrePage} />
+                <Route path="" component={NotFoundPage} />
+              </ErrorBoundary>
             </Switch>
           </AppContainer>
         </>

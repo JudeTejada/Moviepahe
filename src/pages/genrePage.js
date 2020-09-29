@@ -37,7 +37,6 @@ function GenrePage({
 
   if (errorMessage) return <h1>Sorry Something Went wrong with the Page</h1>;
   if (lodash.isEmpty(genreMovies) && isFetching) return <Loader />;
-
   return (
     <div>
       <>
