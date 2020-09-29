@@ -44,8 +44,8 @@ function App({ initMainApp, loading }) {
 
           <AppContainer>
             <Navbar />
-            <Switch>
-              <ErrorBoundary>
+            <ErrorBoundary>
+              <Switch>
                 <Route exact path="/" component={MainPage} />
                 <Route exact path="/search/:movie" component={SearchPage} />
                 <Route exact path="/movie/:id" component={MoviePage} />
@@ -62,9 +62,9 @@ function App({ initMainApp, loading }) {
                   component={GenrePage}
                 />
                 <Route exact path="/genres" component={AllGenrePage} />
-                <Route path="" component={NotFoundPage} />
-              </ErrorBoundary>
-            </Switch>
+                <Route exact path="" component={NotFoundPage} />
+              </Switch>
+            </ErrorBoundary>
           </AppContainer>
         </>
       )}
